@@ -17,6 +17,7 @@ import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
 import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
 import com.google.cloud.vision.v1.Block;
+import com.google.cloud.vision.v1.BoundingPoly;
 import com.google.cloud.vision.v1.ColorInfo;
 import com.google.cloud.vision.v1.CropHint;
 import com.google.cloud.vision.v1.CropHintsAnnotation;
@@ -34,6 +35,7 @@ import com.google.cloud.vision.v1.Paragraph;
 import com.google.cloud.vision.v1.SafeSearchAnnotation;
 import com.google.cloud.vision.v1.Symbol;
 import com.google.cloud.vision.v1.TextAnnotation;
+import com.google.cloud.vision.v1.Vertex;
 import com.google.cloud.vision.v1.WebDetection;
 import com.google.cloud.vision.v1.WebDetection.WebEntity;
 import com.google.cloud.vision.v1.WebDetection.WebImage;
@@ -47,16 +49,35 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Detect {
+public class Detect {	
+	ArrayList<String> des;
+	ArrayList<String> coord;
+	
+	
+public ArrayList<String> getDes() {
+		return des;
+	}
 
-  /**
+	public void setDes(ArrayList<String> des) {
+		this.des = des;
+	}
+
+	public ArrayList<String> getCoord() {
+		return coord;
+	}
+
+	public void setCoord(ArrayList<String> coord) {
+		this.coord = coord;
+	}
+
+/**
    * Detects entities,sentiment and syntax in a document using the Natural Language API.
    *
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
    */
   public static void main(String[] args) throws Exception, IOException {
-    argsHelper(args, System.out);
+  //  argsHelper(args, System.out);
   }
 
   /**
@@ -65,7 +86,7 @@ public class Detect {
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
    */
-  public static void argsHelper(String[] args, PrintStream out) throws Exception, IOException {
+ /* public static void argsHelper(String[] args, PrintStream out) throws Exception, IOException {
     if (args.length < 1) {
       out.println("Usage:");
       out.printf(
@@ -146,7 +167,7 @@ public class Detect {
       }
     }
   }
-
+*/
   /**
    * Constructs a {@link Detect} which connects to the Cloud Vision API.
    *
@@ -159,11 +180,57 @@ public class Detect {
    * Detects faces in the specified local image.
    *
    * @param filePath The path to the file to perform face detection on.
-   * @param out A {@link PrintStream} to write detected features to.
+   * @param bw A {@link PrintStream} to write detected features to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
    */
-  public static void detectFaces(String filePath, PrintStream out) throws Exception, IOException {
+ 
+  public void detectText(String filePath, PrintStream output) throws Exception, IOException {
+	  des = new ArrayList<String>();
+	  coord = new ArrayList<String>();
+	  BoundingPoly temp;
+	    List<AnnotateImageRequest> requests = new ArrayList<>();
+
+	    ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
+
+	    Image img = Image.newBuilder().setContent(imgBytes).build();
+	    Feature feat = Feature.newBuilder().setType(Type.TEXT_DETECTION).build();
+	    AnnotateImageRequest request =
+	        AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
+	    requests.add(request);
+
+	    try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
+	      BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
+	      List<AnnotateImageResponse> responses = response.getResponsesList();
+
+	      for (AnnotateImageResponse res : responses) {
+	        if (res.hasError()) {
+	          output.printf("Error: %s\n",res.getError().getMessage());
+	          return;
+	        }
+
+	        // For full list of available annotations, see http://g.co/cloud/vision/docs
+	        for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
+	        	des.add(annotation.getDescription());	     
+	        	temp = annotation.getBoundingPoly();
+	        	Vertex vertex01 = temp.getVertices(0);
+	        	Vertex vertex02 = temp.getVertices(1);
+	        	Vertex vertex03 = temp.getVertices(2);
+	        	Vertex vertex04 = temp.getVertices(3);
+	        	coord.add(vertex01.toString());
+	        	coord.add(vertex02.toString());
+	        	coord.add(vertex03.toString());
+	        	coord.add(vertex04.toString());  	
+	        	
+	        	
+
+	          output.printf("Text : %s\n", annotation.getDescription());
+	          output.printf("Position : %s\r\n",annotation.getBoundingPoly()+"\r\n");
+	        }
+	      }
+	    }	    
+	  }
+  /*public static void detectFaces(String filePath, PrintStream out) throws Exception, IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
 
     ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
@@ -197,14 +264,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects faces in the specified remote image.
    *
    * @param gcsPath The path to the remote file to perform face detection on.
    * @param out A {@link PrintStream} to write detected features to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectFacesGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -240,14 +307,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects labels in the specified local image.
    *
    * @param filePath The path to the file to perform label detection on.
    * @param out A {@link PrintStream} to write detected labels to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLabels(String filePath, PrintStream out) throws Exception, IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
 
@@ -277,14 +344,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects labels in the specified remote image.
    *
    * @param gcsPath The path to the remote file to perform label detection on.
    * @param out A {@link PrintStream} to write detected features to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLabelsGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -315,14 +382,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects landmarks in the specified local image.
    *
    * @param filePath The path to the file to perform landmark detection on.
    * @param out A {@link PrintStream} to write detected landmarks to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLandmarks(String filePath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -353,14 +420,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects landmarks in the specified URI.
    *
    * @param url The path to the file to perform landmark detection on.
    * @param out A {@link PrintStream} to write detected landmarks to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLandmarksUrl(String url, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -391,14 +458,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects landmarks in the specified remote image.
    *
    * @param gcsPath The path to the remote file to perform landmark detection on.
    * @param out A {@link PrintStream} to write detected landmarks to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLandmarksGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -429,14 +496,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects logos in the specified local image.
    *
    * @param filePath The path to the local file to perform logo detection on.
    * @param out A {@link PrintStream} to write detected logos to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLogos(String filePath, PrintStream out) throws Exception, IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
 
@@ -466,14 +533,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects logos in the specified remote image.
    *
    * @param gcsPath The path to the remote file to perform logo detection on.
    * @param out A {@link PrintStream} to write detected logos to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectLogosGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -503,52 +570,24 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects text in the specified image.
    *
    * @param filePath The path to the file to detect text in.
    * @param out A {@link PrintStream} to write the detected text to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
-  public static void detectText(String filePath, PrintStream out) throws Exception, IOException {
-    List<AnnotateImageRequest> requests = new ArrayList<>();
+   *//*
+  
 
-    ByteString imgBytes = ByteString.readFrom(new FileInputStream(filePath));
-
-    Image img = Image.newBuilder().setContent(imgBytes).build();
-    Feature feat = Feature.newBuilder().setType(Type.TEXT_DETECTION).build();
-    AnnotateImageRequest request =
-        AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
-    requests.add(request);
-
-    try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
-      BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
-      List<AnnotateImageResponse> responses = response.getResponsesList();
-
-      for (AnnotateImageResponse res : responses) {
-        if (res.hasError()) {
-          out.printf("Error: %s\n", res.getError().getMessage());
-          return;
-        }
-
-        // For full list of available annotations, see http://g.co/cloud/vision/docs
-        for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
-          out.printf("Text: %s\n", annotation.getDescription());
-          out.printf("Position : %s\n", annotation.getBoundingPoly());
-        }
-      }
-    }
-  }
-
-  /**
+  *//**
    * Detects text in the specified remote image.
    *
    * @param gcsPath The path to the remote file to detect text in.
    * @param out A {@link PrintStream} to write the detected text to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectTextGcs(String gcsPath, PrintStream out) throws Exception, IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
 
@@ -578,14 +617,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects image properties such as color frequency from the specified local image.
    *
    * @param filePath The path to the file to detect properties.
    * @param out A {@link PrintStream} to write
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectProperties(String filePath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -622,14 +661,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects image properties such as color frequency from the specified remote image.
    *
    * @param gcsPath The path to the remote file to detect properties on.
    * @param out A {@link PrintStream} to write
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectPropertiesGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -665,14 +704,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects whether the specified image has features you would want to moderate.
    *
    * @param filePath The path to the local file used for safe search detection.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectSafeSearch(String filePath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -707,14 +746,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects whether the specified remote image has features you would want to moderate.
    *
    * @param gcsPath The path to the remote file to detect safe-search on.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectSafeSearchGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -748,14 +787,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Finds references to the specified image on the web.
    *
    * @param filePath The path to the local file used for web annotation detection.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectWebDetections(String filePath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -804,14 +843,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Detects whether the specified remote image has features you would want to moderate.
    *
    * @param gcsPath The path to the remote file to detect safe-search on.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectWebDetectionsGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -859,14 +898,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Suggests a region to crop to for a local file.
    *
    * @param filePath The path to the local file used for web annotation detection.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectCropHints(String filePath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -898,14 +937,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Suggests a region to crop to for a remote file.
    *
    * @param gcsPath The path to the remote file to detect safe-search on.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectCropHintsGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -936,14 +975,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Performs document text detection on a local image file.
    *
    * @param filePath The path to the local file to detect document text on.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectDocumentText(String filePath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -995,14 +1034,14 @@ public class Detect {
     }
   }
 
-  /**
+  *//**
    * Performs document text detection on a local image file.
    *
    * @param gcsPath The path to the remote file to detect document text on.
    * @param out A {@link PrintStream} to write the results to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
-   */
+   *//*
   public static void detectDocumentTextGcs(String gcsPath, PrintStream out) throws Exception,
       IOException {
     List<AnnotateImageRequest> requests = new ArrayList<>();
@@ -1050,5 +1089,5 @@ public class Detect {
         out.println(annotation.getText());
       }
     }
-  }
+  }*/
 }

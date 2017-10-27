@@ -35,6 +35,12 @@
 	  <artifactId>google-cloud-vision</artifactId>
 	  <version>0.25.0-beta</version>
 	</dependency>
+	
+	<dependency> 
+	<groupId> com.google.cloud </groupId> 
+	<artifactId> google-cloud-translate </artifactId> 
+	<version> 1.7.0 </version> 
+	</dependency>
 	    
   </dependencies>
   <build>
