@@ -1,1405 +1,773 @@
-Text : 고맙다. 네게는 계속
-신세를 지는군.
-아닙니다
-저도 무자카님께
-많은 도움 을 받고
-있으니까요.
-도움이라…
-내 몸에 대한 데이터를
-얻는 것 말인가?
-무자카님을 치료하며
-데이터를 얻는데다가
-언제든 제가 원할 때
-무자카님의 몸을
-살필 수 있게 해주지
-않습니까
-그건 무자카님이
-생각하는 것보다 제게
-큰 도움이 됩니다
+Text : 이대로라면
+반년, 아니 지금은
+그정도도 버티지
+못할 거야
+한 달이나
+두달?
+oO
+그분의 생명이
+얼마 남지 않았다고?
+반년도 버티지
+못 하신다고?
+저자의 말이
+사실입니까?
 
 Position : vertices {
-  x: 65
-  y: 87
+  x: 174
+  y: 131
 }
 vertices {
-  x: 576
-  y: 87
+  x: 601
+  y: 131
 }
 vertices {
-  x: 576
-  y: 1580
+  x: 601
+  y: 1545
 }
 vertices {
-  x: 65
-  y: 1580
+  x: 174
+  y: 1545
 }
 
 
-Text : 고맙다
+Text : 이대로
 Position : vertices {
-  x: 400
-  y: 87
+  x: 466
+  y: 131
 }
 vertices {
-  x: 445
-  y: 87
+  x: 511
+  y: 131
 }
 vertices {
-  x: 445
-  y: 103
-}
-vertices {
-  x: 400
-  y: 103
-}
-
-
-Text : .
-Position : vertices {
-  x: 449
-  y: 99
-}
-vertices {
-  x: 451
-  y: 99
-}
-vertices {
-  x: 451
-  y: 102
-}
-vertices {
-  x: 449
-  y: 102
-}
-
-
-Text : 네게
-Position : vertices {
-  x: 458
-  y: 87
-}
-vertices {
-  x: 488
-  y: 87
-}
-vertices {
-  x: 488
-  y: 102
-}
-vertices {
-  x: 458
-  y: 102
-}
-
-
-Text : 는
-Position : vertices {
-  x: 492
-  y: 87
-}
-vertices {
-  x: 505
-  y: 87
-}
-vertices {
-  x: 505
-  y: 103
-}
-vertices {
-  x: 492
-  y: 103
-}
-
-
-Text : 계속
-Position : vertices {
-  x: 512
-  y: 87
-}
-vertices {
-  x: 542
-  y: 87
-}
-vertices {
-  x: 542
-  y: 103
-}
-vertices {
-  x: 512
-  y: 103
-}
-
-
-Text : 신세
-Position : vertices {
-  x: 422
-  y: 107
-}
-vertices {
-  x: 450
-  y: 107
-}
-vertices {
-  x: 450
-  y: 124
-}
-vertices {
-  x: 422
-  y: 124
-}
-
-
-Text : 를
-Position : vertices {
-  x: 453
-  y: 107
+  x: 511
+  y: 146
 }
 vertices {
   x: 466
-  y: 107
-}
-vertices {
-  x: 466
-  y: 124
-}
-vertices {
-  x: 453
-  y: 124
+  y: 146
 }
 
 
-Text : 지는군
+Text : 라면
 Position : vertices {
-  x: 473
-  y: 107
+  x: 514
+  y: 131
 }
 vertices {
-  x: 519
-  y: 107
+  x: 543
+  y: 131
 }
 vertices {
-  x: 519
-  y: 124
+  x: 543
+  y: 147
 }
 vertices {
-  x: 473
-  y: 124
+  x: 514
+  y: 147
 }
 
 
-Text : .
+Text : 반년
 Position : vertices {
-  x: 522
-  y: 120
+  x: 444
+  y: 152
 }
 vertices {
-  x: 525
-  y: 120
+  x: 472
+  y: 152
 }
 vertices {
-  x: 525
-  y: 123
+  x: 472
+  y: 168
 }
 vertices {
-  x: 522
-  y: 123
+  x: 444
+  y: 168
 }
 
 
-Text : 아닙니다
+Text : ,
 Position : vertices {
-  x: 480
-  y: 490
+  x: 476
+  y: 165
 }
 vertices {
-  x: 542
-  y: 492
+  x: 478
+  y: 165
 }
 vertices {
-  x: 542
-  y: 508
+  x: 478
+  y: 169
 }
 vertices {
-  x: 480
-  y: 506
+  x: 476
+  y: 169
 }
 
 
-Text : 저도
+Text : 아니
 Position : vertices {
-  x: 458
-  y: 512
+  x: 485
+  y: 152
 }
 vertices {
-  x: 488
-  y: 512
+  x: 515
+  y: 152
 }
 vertices {
-  x: 488
-  y: 527
+  x: 515
+  y: 167
 }
 vertices {
-  x: 458
-  y: 527
+  x: 485
+  y: 167
 }
 
 
-Text : 무자
+Text : 지금
 Position : vertices {
-  x: 494
-  y: 512
-}
-vertices {
-  x: 524
-  y: 512
-}
-vertices {
-  x: 524
-  y: 527
-}
-vertices {
-  x: 494
-  y: 527
-}
-
-
-Text : 카
-Position : vertices {
-  x: 527
-  y: 512
-}
-vertices {
-  x: 541
-  y: 512
-}
-vertices {
-  x: 541
-  y: 527
-}
-vertices {
-  x: 527
-  y: 527
-}
-
-
-Text : 님께
-Position : vertices {
-  x: 544
-  y: 512
-}
-vertices {
-  x: 573
-  y: 512
-}
-vertices {
-  x: 573
-  y: 528
-}
-vertices {
-  x: 544
-  y: 528
-}
-
-
-Text : 많은
-Position : vertices {
-  x: 455
-  y: 532
-}
-vertices {
-  x: 486
-  y: 532
-}
-vertices {
-  x: 486
-  y: 549
-}
-vertices {
-  x: 455
-  y: 549
-}
-
-
-Text : 도움
-Position : vertices {
-  x: 492
-  y: 532
-}
-vertices {
-  x: 522
-  y: 532
-}
-vertices {
-  x: 522
-  y: 548
-}
-vertices {
-  x: 492
-  y: 548
-}
-
-
-Text : 을
-Position : vertices {
-  x: 526
-  y: 532
-}
-vertices {
-  x: 539
-  y: 532
-}
-vertices {
-  x: 539
-  y: 548
-}
-vertices {
-  x: 526
-  y: 548
-}
-
-
-Text : 받고
-Position : vertices {
-  x: 546
-  y: 533
-}
-vertices {
-  x: 576
-  y: 533
-}
-vertices {
-  x: 576
-  y: 549
-}
-vertices {
-  x: 546
-  y: 549
-}
-
-
-Text : 있으니까요
-Position : vertices {
-  x: 475
-  y: 554
+  x: 523
+  y: 152
 }
 vertices {
   x: 553
-  y: 554
+  y: 152
 }
 vertices {
   x: 553
-  y: 570
+  y: 168
 }
 vertices {
-  x: 475
-  y: 570
+  x: 523
+  y: 168
 }
 
 
-Text : .
+Text : 은
 Position : vertices {
   x: 555
-  y: 567
+  y: 152
 }
 vertices {
-  x: 557
-  y: 567
+  x: 570
+  y: 152
 }
 vertices {
-  x: 557
-  y: 570
+  x: 570
+  y: 168
 }
 vertices {
   x: 555
-  y: 570
+  y: 168
 }
 
 
-Text : 도움
+Text : 그정도
 Position : vertices {
-  x: 102
-  y: 1186
+  x: 445
+  y: 172
 }
 vertices {
-  x: 132
-  y: 1189
+  x: 493
+  y: 172
 }
 vertices {
-  x: 130
-  y: 1205
+  x: 493
+  y: 188
 }
 vertices {
-  x: 101
-  y: 1202
+  x: 445
+  y: 188
 }
 
 
-Text : 이라
+Text : 도
 Position : vertices {
-  x: 135
-  y: 1186
+  x: 494
+  y: 173
 }
 vertices {
-  x: 165
-  y: 1189
+  x: 509
+  y: 173
 }
 vertices {
-  x: 163
-  y: 1205
+  x: 509
+  y: 185
 }
 vertices {
-  x: 134
-  y: 1202
+  x: 494
+  y: 185
 }
 
 
-Text : …
+Text : 버티지
 Position : vertices {
-  x: 167
-  y: 1200
+  x: 516
+  y: 172
 }
 vertices {
-  x: 180
-  y: 1201
+  x: 561
+  y: 172
 }
 vertices {
-  x: 180
-  y: 1205
+  x: 561
+  y: 187
 }
 vertices {
-  x: 167
-  y: 1204
+  x: 516
+  y: 187
 }
 
 
-Text : 내
+Text : 못할
 Position : vertices {
-  x: 65
-  y: 1209
+  x: 470
+  y: 194
 }
 vertices {
-  x: 77
-  y: 1209
+  x: 500
+  y: 193
 }
 vertices {
-  x: 77
-  y: 1225
+  x: 501
+  y: 210
 }
 vertices {
-  x: 65
-  y: 1225
+  x: 471
+  y: 211
 }
 
 
-Text : 몸
+Text : 거야
 Position : vertices {
-  x: 84
-  y: 1209
+  x: 507
+  y: 194
 }
 vertices {
-  x: 97
-  y: 1209
+  x: 538
+  y: 193
 }
 vertices {
-  x: 97
-  y: 1225
+  x: 539
+  y: 209
 }
 vertices {
-  x: 84
-  y: 1225
+  x: 508
+  y: 210
 }
 
 
-Text : 에
+Text : 한
 Position : vertices {
-  x: 100
-  y: 1209
+  x: 376
+  y: 312
 }
 vertices {
-  x: 115
-  y: 1209
+  x: 390
+  y: 312
 }
 vertices {
-  x: 115
-  y: 1225
+  x: 390
+  y: 328
 }
 vertices {
-  x: 100
-  y: 1225
+  x: 376
+  y: 328
 }
 
 
-Text : 대한
+Text : 달
 Position : vertices {
-  x: 121
-  y: 1209
+  x: 397
+  y: 312
 }
 vertices {
-  x: 152
-  y: 1209
+  x: 411
+  y: 312
 }
 vertices {
-  x: 152
-  y: 1225
+  x: 411
+  y: 328
 }
 vertices {
-  x: 121
-  y: 1225
+  x: 397
+  y: 328
 }
 
 
-Text : 데이터
+Text : 이나
 Position : vertices {
-  x: 158
-  y: 1209
+  x: 413
+  y: 311
 }
 vertices {
-  x: 205
-  y: 1209
+  x: 443
+  y: 311
 }
 vertices {
-  x: 205
-  y: 1225
+  x: 443
+  y: 327
 }
 vertices {
-  x: 158
-  y: 1225
+  x: 413
+  y: 327
 }
 
 
-Text : 를
+Text : 두달
 Position : vertices {
-  x: 208
-  y: 1209
+  x: 391
+  y: 332
 }
 vertices {
-  x: 221
-  y: 1209
+  x: 426
+  y: 333
 }
 vertices {
-  x: 221
-  y: 1225
+  x: 425
+  y: 350
 }
 vertices {
-  x: 208
-  y: 1225
-}
-
-
-Text : 얻는
-Position : vertices {
-  x: 88
-  y: 1230
-}
-vertices {
-  x: 117
-  y: 1230
-}
-vertices {
-  x: 117
-  y: 1246
-}
-vertices {
-  x: 88
-  y: 1246
-}
-
-
-Text : 것
-Position : vertices {
-  x: 125
-  y: 1229
-}
-vertices {
-  x: 138
-  y: 1229
-}
-vertices {
-  x: 138
-  y: 1245
-}
-vertices {
-  x: 125
-  y: 1245
-}
-
-
-Text : 말인가
-Position : vertices {
-  x: 145
-  y: 1229
-}
-vertices {
-  x: 191
-  y: 1229
-}
-vertices {
-  x: 191
-  y: 1246
-}
-vertices {
-  x: 145
-  y: 1246
+  x: 390
+  y: 349
 }
 
 
 Text : ?
 Position : vertices {
-  x: 195
-  y: 1230
+  x: 429
+  y: 335
 }
 vertices {
-  x: 200
-  y: 1230
+  x: 435
+  y: 335
 }
 vertices {
-  x: 200
-  y: 1244
+  x: 434
+  y: 348
 }
 vertices {
-  x: 195
-  y: 1244
+  x: 428
+  y: 348
 }
 
 
-Text : 무자
+Text : oO
 Position : vertices {
-  x: 415
-  y: 1366
+  x: 396
+  y: 721
 }
 vertices {
-  x: 445
-  y: 1366
+  x: 437
+  y: 721
 }
 vertices {
-  x: 445
-  y: 1382
+  x: 437
+  y: 738
 }
 vertices {
-  x: 415
-  y: 1382
+  x: 396
+  y: 738
 }
 
 
-Text : 카
+Text : 그분
 Position : vertices {
-  x: 447
-  y: 1366
+  x: 193
+  y: 724
 }
 vertices {
-  x: 460
-  y: 1366
+  x: 223
+  y: 724
 }
 vertices {
-  x: 460
-  y: 1382
+  x: 223
+  y: 739
 }
 vertices {
-  x: 447
-  y: 1382
-}
-
-
-Text : 님
-Position : vertices {
-  x: 464
-  y: 1366
-}
-vertices {
-  x: 476
-  y: 1366
-}
-vertices {
-  x: 476
-  y: 1383
-}
-vertices {
-  x: 464
-  y: 1383
-}
-
-
-Text : 을
-Position : vertices {
-  x: 480
-  y: 1366
-}
-vertices {
-  x: 493
-  y: 1366
-}
-vertices {
-  x: 493
-  y: 1383
-}
-vertices {
-  x: 480
-  y: 1383
-}
-
-
-Text : 치료
-Position : vertices {
-  x: 501
-  y: 1367
-}
-vertices {
-  x: 531
-  y: 1367
-}
-vertices {
-  x: 531
-  y: 1383
-}
-vertices {
-  x: 501
-  y: 1383
-}
-
-
-Text : 하며
-Position : vertices {
-  x: 533
-  y: 1367
-}
-vertices {
-  x: 562
-  y: 1367
-}
-vertices {
-  x: 562
-  y: 1383
-}
-vertices {
-  x: 533
-  y: 1383
-}
-
-
-Text : 데이터
-Position : vertices {
-  x: 412
-  y: 1387
-}
-vertices {
-  x: 457
-  y: 1387
-}
-vertices {
-  x: 457
-  y: 1403
-}
-vertices {
-  x: 412
-  y: 1403
-}
-
-
-Text : 를
-Position : vertices {
-  x: 462
-  y: 1387
-}
-vertices {
-  x: 474
-  y: 1387
-}
-vertices {
-  x: 474
-  y: 1403
-}
-vertices {
-  x: 462
-  y: 1403
-}
-
-
-Text : 얻는
-Position : vertices {
-  x: 482
-  y: 1387
-}
-vertices {
-  x: 512
-  y: 1387
-}
-vertices {
-  x: 512
-  y: 1404
-}
-vertices {
-  x: 482
-  y: 1404
-}
-
-
-Text : 데다가
-Position : vertices {
-  x: 513
-  y: 1387
-}
-vertices {
-  x: 560
-  y: 1387
-}
-vertices {
-  x: 560
-  y: 1403
-}
-vertices {
-  x: 513
-  y: 1403
-}
-
-
-Text : 언제든
-Position : vertices {
-  x: 414
-  y: 1408
-}
-vertices {
-  x: 459
-  y: 1408
-}
-vertices {
-  x: 459
-  y: 1424
-}
-vertices {
-  x: 414
-  y: 1424
-}
-
-
-Text : 제가
-Position : vertices {
-  x: 466
-  y: 1408
-}
-vertices {
-  x: 497
-  y: 1408
-}
-vertices {
-  x: 497
-  y: 1424
-}
-vertices {
-  x: 466
-  y: 1424
-}
-
-
-Text : 원할
-Position : vertices {
-  x: 504
-  y: 1408
-}
-vertices {
-  x: 534
-  y: 1408
-}
-vertices {
-  x: 534
-  y: 1424
-}
-vertices {
-  x: 504
-  y: 1424
-}
-
-
-Text : 때
-Position : vertices {
-  x: 541
-  y: 1408
-}
-vertices {
-  x: 555
-  y: 1408
-}
-vertices {
-  x: 555
-  y: 1423
-}
-vertices {
-  x: 541
-  y: 1423
-}
-
-
-Text : 무자
-Position : vertices {
-  x: 430
-  y: 1429
-}
-vertices {
-  x: 458
-  y: 1429
-}
-vertices {
-  x: 458
-  y: 1445
-}
-vertices {
-  x: 430
-  y: 1445
-}
-
-
-Text : 카
-Position : vertices {
-  x: 461
-  y: 1429
-}
-vertices {
-  x: 474
-  y: 1429
-}
-vertices {
-  x: 474
-  y: 1445
-}
-vertices {
-  x: 461
-  y: 1445
-}
-
-
-Text : 님
-Position : vertices {
-  x: 478
-  y: 1429
-}
-vertices {
-  x: 490
-  y: 1429
-}
-vertices {
-  x: 490
-  y: 1445
-}
-vertices {
-  x: 478
-  y: 1445
+  x: 193
+  y: 739
 }
 
 
 Text : 의
 Position : vertices {
-  x: 494
-  y: 1429
+  x: 226
+  y: 724
 }
 vertices {
-  x: 506
-  y: 1429
+  x: 239
+  y: 724
 }
 vertices {
-  x: 506
-  y: 1445
+  x: 239
+  y: 739
 }
 vertices {
-  x: 494
-  y: 1445
+  x: 226
+  y: 739
 }
 
 
-Text : 몸
+Text : 생명
 Position : vertices {
-  x: 514
-  y: 1429
+  x: 246
+  y: 723
 }
 vertices {
-  x: 528
-  y: 1429
+  x: 276
+  y: 723
 }
 vertices {
-  x: 528
-  y: 1445
+  x: 276
+  y: 738
 }
 vertices {
-  x: 514
-  y: 1445
-}
-
-
-Text : 을
-Position : vertices {
-  x: 531
-  y: 1429
-}
-vertices {
-  x: 544
-  y: 1429
-}
-vertices {
-  x: 544
-  y: 1445
-}
-vertices {
-  x: 531
-  y: 1445
-}
-
-
-Text : 살필
-Position : vertices {
-  x: 416
-  y: 1449
-}
-vertices {
-  x: 445
-  y: 1449
-}
-vertices {
-  x: 445
-  y: 1466
-}
-vertices {
-  x: 416
-  y: 1466
-}
-
-
-Text : 수
-Position : vertices {
-  x: 452
-  y: 1450
-}
-vertices {
-  x: 467
-  y: 1450
-}
-vertices {
-  x: 467
-  y: 1465
-}
-vertices {
-  x: 452
-  y: 1465
-}
-
-
-Text : 있게
-Position : vertices {
-  x: 474
-  y: 1450
-}
-vertices {
-  x: 504
-  y: 1450
-}
-vertices {
-  x: 504
-  y: 1466
-}
-vertices {
-  x: 474
-  y: 1466
-}
-
-
-Text : 해주지
-Position : vertices {
-  x: 511
-  y: 1449
-}
-vertices {
-  x: 557
-  y: 1449
-}
-vertices {
-  x: 557
-  y: 1466
-}
-vertices {
-  x: 511
-  y: 1466
-}
-
-
-Text : 않습니까
-Position : vertices {
-  x: 454
-  y: 1471
-}
-vertices {
-  x: 515
-  y: 1471
-}
-vertices {
-  x: 515
-  y: 1487
-}
-vertices {
-  x: 454
-  y: 1487
-}
-
-
-Text : 그건
-Position : vertices {
-  x: 325
-  y: 1521
-}
-vertices {
-  x: 355
-  y: 1521
-}
-vertices {
-  x: 355
-  y: 1538
-}
-vertices {
-  x: 325
-  y: 1538
-}
-
-
-Text : 무자
-Position : vertices {
-  x: 362
-  y: 1521
-}
-vertices {
-  x: 392
-  y: 1521
-}
-vertices {
-  x: 392
-  y: 1536
-}
-vertices {
-  x: 362
-  y: 1536
-}
-
-
-Text : 카
-Position : vertices {
-  x: 396
-  y: 1522
-}
-vertices {
-  x: 409
-  y: 1522
-}
-vertices {
-  x: 409
-  y: 1537
-}
-vertices {
-  x: 396
-  y: 1537
-}
-
-
-Text : 님
-Position : vertices {
-  x: 412
-  y: 1522
-}
-vertices {
-  x: 424
-  y: 1522
-}
-vertices {
-  x: 424
-  y: 1538
-}
-vertices {
-  x: 412
-  y: 1538
+  x: 246
+  y: 738
 }
 
 
 Text : 이
 Position : vertices {
-  x: 428
+  x: 280
+  y: 724
+}
+vertices {
+  x: 292
+  y: 724
+}
+vertices {
+  x: 292
+  y: 738
+}
+vertices {
+  x: 280
+  y: 738
+}
+
+
+Text : 얼마
+Position : vertices {
+  x: 174
+  y: 744
+}
+vertices {
+  x: 203
+  y: 744
+}
+vertices {
+  x: 203
+  y: 760
+}
+vertices {
+  x: 174
+  y: 760
+}
+
+
+Text : 남지
+Position : vertices {
+  x: 211
+  y: 744
+}
+vertices {
+  x: 239
+  y: 744
+}
+vertices {
+  x: 239
+  y: 760
+}
+vertices {
+  x: 211
+  y: 760
+}
+
+
+Text : 않았다고
+Position : vertices {
+  x: 248
+  y: 744
+}
+vertices {
+  x: 310
+  y: 744
+}
+vertices {
+  x: 310
+  y: 759
+}
+vertices {
+  x: 248
+  y: 759
+}
+
+
+Text : ?
+Position : vertices {
+  x: 313
+  y: 745
+}
+vertices {
+  x: 319
+  y: 745
+}
+vertices {
+  x: 319
+  y: 758
+}
+vertices {
+  x: 313
+  y: 758
+}
+
+
+Text : 반년
+Position : vertices {
+  x: 504
+  y: 893
+}
+vertices {
+  x: 531
+  y: 893
+}
+vertices {
+  x: 531
+  y: 909
+}
+vertices {
+  x: 504
+  y: 909
+}
+
+
+Text : 도
+Position : vertices {
+  x: 534
+  y: 894
+}
+vertices {
+  x: 548
+  y: 894
+}
+vertices {
+  x: 548
+  y: 906
+}
+vertices {
+  x: 534
+  y: 906
+}
+
+
+Text : 버티지
+Position : vertices {
+  x: 556
+  y: 893
+}
+vertices {
+  x: 601
+  y: 893
+}
+vertices {
+  x: 601
+  y: 908
+}
+vertices {
+  x: 556
+  y: 908
+}
+
+
+Text : 못
+Position : vertices {
+  x: 506
+  y: 914
+}
+vertices {
+  x: 520
+  y: 913
+}
+vertices {
+  x: 521
+  y: 928
+}
+vertices {
+  x: 507
+  y: 929
+}
+
+
+Text : 하신
+Position : vertices {
+  x: 527
+  y: 914
+}
+vertices {
+  x: 555
+  y: 913
+}
+vertices {
+  x: 556
+  y: 929
+}
+vertices {
+  x: 528
+  y: 930
+}
+
+
+Text : 다고
+Position : vertices {
+  x: 559
+  y: 914
+}
+vertices {
+  x: 589
+  y: 913
+}
+vertices {
+  x: 590
+  y: 929
+}
+vertices {
+  x: 560
+  y: 930
+}
+
+
+Text : ?
+Position : vertices {
+  x: 592
+  y: 914
+}
+vertices {
+  x: 598
+  y: 914
+}
+vertices {
+  x: 599
+  y: 927
+}
+vertices {
+  x: 593
+  y: 927
+}
+
+
+Text : 저자
+Position : vertices {
+  x: 416
+  y: 1506
+}
+vertices {
+  x: 446
+  y: 1507
+}
+vertices {
+  x: 445
+  y: 1523
+}
+vertices {
+  x: 415
+  y: 1522
+}
+
+
+Text : 의
+Position : vertices {
+  x: 448
+  y: 1506
+}
+vertices {
+  x: 461
+  y: 1507
+}
+vertices {
+  x: 460
   y: 1522
 }
 vertices {
-  x: 441
+  x: 447
+  y: 1521
+}
+
+
+Text : 말이
+Position : vertices {
+  x: 469
+  y: 1506
+}
+vertices {
+  x: 498
+  y: 1507
+}
+vertices {
+  x: 497
+  y: 1523
+}
+vertices {
+  x: 468
   y: 1522
 }
+
+
+Text : 사실
+Position : vertices {
+  x: 412
+  y: 1528
+}
 vertices {
   x: 441
-  y: 1537
+  y: 1527
 }
 vertices {
-  x: 428
-  y: 1537
+  x: 442
+  y: 1544
+}
+vertices {
+  x: 413
+  y: 1545
 }
 
 
-Text : 생각
+Text : 입니까
 Position : vertices {
-  x: 310
-  y: 1542
+  x: 445
+  y: 1528
 }
 vertices {
-  x: 340
-  y: 1542
+  x: 491
+  y: 1526
 }
 vertices {
-  x: 340
-  y: 1558
-}
-vertices {
-  x: 310
-  y: 1558
-}
-
-
-Text : 하는
-Position : vertices {
-  x: 343
+  x: 492
   y: 1543
 }
 vertices {
-  x: 372
-  y: 1543
-}
-vertices {
-  x: 372
-  y: 1559
-}
-vertices {
-  x: 343
-  y: 1559
+  x: 446
+  y: 1545
 }
 
 
-Text : 것
+Text : ?
 Position : vertices {
-  x: 380
-  y: 1542
+  x: 494
+  y: 1528
 }
 vertices {
-  x: 393
-  y: 1542
+  x: 500
+  y: 1528
 }
 vertices {
-  x: 393
-  y: 1558
+  x: 501
+  y: 1541
 }
 vertices {
-  x: 380
-  y: 1558
-}
-
-
-Text : 보다
-Position : vertices {
-  x: 395
-  y: 1543
-}
-vertices {
-  x: 426
-  y: 1543
-}
-vertices {
-  x: 426
-  y: 1558
-}
-vertices {
-  x: 395
-  y: 1558
-}
-
-
-Text : 제게
-Position : vertices {
-  x: 432
-  y: 1543
-}
-vertices {
-  x: 463
-  y: 1543
-}
-vertices {
-  x: 463
-  y: 1558
-}
-vertices {
-  x: 432
-  y: 1558
-}
-
-
-Text : 큰
-Position : vertices {
-  x: 325
-  y: 1563
-}
-vertices {
-  x: 340
-  y: 1563
-}
-vertices {
-  x: 340
-  y: 1580
-}
-vertices {
-  x: 325
-  y: 1580
-}
-
-
-Text : 도움
-Position : vertices {
-  x: 346
-  y: 1564
-}
-vertices {
-  x: 377
-  y: 1564
-}
-vertices {
-  x: 377
-  y: 1580
-}
-vertices {
-  x: 346
-  y: 1580
-}
-
-
-Text : 이
-Position : vertices {
-  x: 379
-  y: 1564
-}
-vertices {
-  x: 392
-  y: 1564
-}
-vertices {
-  x: 392
-  y: 1579
-}
-vertices {
-  x: 379
-  y: 1579
-}
-
-
-Text : 됩니다
-Position : vertices {
-  x: 400
-  y: 1564
-}
-vertices {
-  x: 448
-  y: 1564
-}
-vertices {
-  x: 448
-  y: 1580
-}
-vertices {
-  x: 400
-  y: 1580
+  x: 495
+  y: 1541
 }
 
 
