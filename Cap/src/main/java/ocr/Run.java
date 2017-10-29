@@ -13,7 +13,7 @@ public class Run {
 		//new Crawler();
 		//StringBuffer sb = new StringBuffer();
 		Detect detect = new Detect();
-		String path = "./src/main/resources/webtoon_img/_14.jpg";
+		String path = "./src/main/resources/webtoon_img/_35.jpg";
 		File f = new File("./text/lines.txt");
 		PrintStream p;	
 		Coordinator coordinator;
