@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Coordinator {
 
-	ArrayList<String> des;	
-	ArrayList<String> coordChild;
+	private ArrayList<String> des;	
+	private ArrayList<String> coordChild;
 	
 	ArrayList<ArrayList<Integer>> coordParent;
 	

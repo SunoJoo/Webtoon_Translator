@@ -27,6 +27,15 @@ public class Run {
 			coordinator.coordinate();
 			calculator = new Calculator(coordinator.getDes(),coordinator.getCoordParent());
 			calculator.print1();
+			for(int i = 0; i<calculator.getSentenceArray().length;i++) {				
+				System.out.println(calculator.getSentenceArray()[i]);
+				System.out.println(calculator.getSentenceIndex().get(i));		
+				
+			}
+			//System.out.println(calculator.getSentenceIndex().get(0));
+			//System.out.println(calculator.getSentenceIndex().get(1));		
+			
+		
 			
 			
 			

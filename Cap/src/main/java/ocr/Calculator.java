@@ -5,11 +5,20 @@ import java.util.ArrayList;
 
 
 public class Calculator {
-	ArrayList<String> des;
-	ArrayList<ArrayList<Integer>> coordParent;
-	ArrayList<ArrayList<Integer>> sentenceLocation;
-	String[] sentenceArray;
-	int sentenceNum = 0;
+	private ArrayList<String> des;
+	private ArrayList<ArrayList<Integer>> coordParent;
+	private ArrayList<ArrayList<Integer>> sentenceIndex;
+	private ArrayList<Integer> sentenceLocation;
+	private String[] sentenceArray;
+	private int sentenceNum = 0;
+	private int[] leftTop = new int[2];
+	private int[] rightTop = new int[2];
+	private int[] leftBottom = new int[2];
+	private int[] rightBottom = new int[2];
+	private boolean rightTopSet =false;
+	private boolean leftTopSet =false;
+	private boolean leftBottomSet =false;
+	private boolean rightBottomSet =false;
 	
 	/*String[] element;
 	String[] comparison;
@@ -169,7 +178,7 @@ public class Calculator {
 			int x1Data = returnRightTopButtom_MiddleArray(coordParent, coordParentGet)[0];
 			int x2Data = returnLeftTopButtom_MiddleArray(coordParent, coordParentGet)[0];				
 			
-			if(Math.abs((x1Data-x2Data))<10)			
+			if(Math.abs((x1Data-x2Data))<15)			
 				return true;
 			else
 				return false;
@@ -180,7 +189,7 @@ public class Calculator {
 			int y1Data = returnLeftButtomRightButtom_MiddleArray(coordParent, coordParentGet)[1];
 			int y2Data = returnLeftTopRightTop_MiddleArray(coordParent, coordParentGet)[1];
 
-			if(Math.abs((y1Data-y2Data))<10)
+			if(Math.abs((y1Data-y2Data))<15)
 				return true;
 			else				
 				return false;
@@ -201,39 +210,179 @@ public class Calculator {
 		public void print1() {
 			
 			StringBuffer sentence = new StringBuffer();			
-			int num=0;
-			if(!des.isEmpty())
-				sentence.append(des.get(1));		
-			
+			int num=0;		
+		
 			sentenceArray = new String[sentenceNum];
-			sentenceLocation = new ArrayList<ArrayList<Integer>>();
+			sentenceIndex = new ArrayList<ArrayList<Integer>>();
+			sentenceLocation = new ArrayList<Integer>();
 			
 			System.out.println(sentenceArray.length);
-			for(int i = 2, index=0; i<coordParent.size(); i++) {
+			for(int i = 2, index=0; i<coordParent.size(); i++) {		
+						
+				if(i==2)
+				{
+					sentence.append(des.get(1));			
+				}
 				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
-					if(i==2&&!coordParent.isEmpty()) {						
-						sentenceLocation.get(index).add(returnLeftTopArray(coordParent.get(i-1))[0]);
-						sentenceLocation.get(index).add(returnLeftTopArray(coordParent.get(i-1))[1]);
-						//각 덩어리들 위치값 구해서 저장
-					}
+					
 					sentenceArray[num] = sentence.toString();
+					insertSentenceLocation();				
+					intsertSentenceIndex(num);
+					setDeaultBooleanSet();
 					num++;
 					sentence.delete(0, sentence.length());
 					sentence.append(des.get(i));
+					index = index + 1;						
+					setDefaultSentenceLocation();
 				
 					}
+				
 				else if(checkRow(coordParent.get(i-1), coordParent.get(i))){
 					sentence.append(des.get(i));
+					checkLeftTop(i);
+					checkRightTop(i);
+					checkRightBottom(i);
+					checkLeftBottom(i);					
 					}
 				else if(checkColumn(coordParent.get(i-1), coordParent.get(i))) {
-					sentence.append(des.get(i));
+					sentence.append(des.get(i));	
+					checkLeftTop(i);
+					checkRightTop(i);
+					checkRightBottom(i);
+					checkLeftBottom(i);
 					}
-				if(i==coordParent.size()-1)
+				if(i==coordParent.size()-1) {
 					sentenceArray[num] = sentence.toString();
+					insertSentenceLocation();
+					intsertSentenceIndex(num);
 				}
-			for(int i = 0; i<sentenceArray.length;i++)
-				System.out.println(sentenceArray[i]);
+				}
+			
 		}
+		
+		public void checkLeftTop(int i) {
+			int x = returnLeftTopArray(coordParent.get(i))[0];
+			int y = returnLeftTopArray(coordParent.get(i))[1];
+				if(!leftTopSet)	{			
+					leftTop[0] = x;		
+					leftTop[1] = y;	
+					leftTopSet = true;
+					}
+				if(leftTopSet)
+					if(leftTop[0]>x) 
+						leftTop[0] = x;
+					if(leftTop[1]>y)
+						leftTop[1] = y;
+				}
+
+		public void checkRightTop(int i) {	
+			int x = returnRightTopArray(coordParent.get(i))[0];
+			int y = returnRightTopArray(coordParent.get(i))[1];
+	 
+			if(!rightTopSet)	{			
+					rightTop[0] = x;		
+					rightTop[1] = y;	
+					rightTopSet = true;
+			}
+			
+			if(rightTopSet) {			
+				if(rightTop[0]<x) 
+					rightTop[0] = x;				
+				if(rightTop[1]>y) 
+					rightTop[1] = y;	
+			}
+			
+		}
+		
+		
+		
+		
+		public void checkRightBottom(int i) {
+			int x = returnRightButtomArray(coordParent.get(i))[0];
+			int y = returnRightButtomArray(coordParent.get(i))[1];
+	
+			if(!rightBottomSet)	{			
+				rightBottom[0] = x;		
+				rightBottom[1] = y;	
+				rightBottomSet = true;
+				}
+			if(rightBottomSet)
+				if(rightBottom[0]<x) 
+					rightBottom[0] =x;			
+				if(rightBottom[1]<y) 
+					rightBottom[1] =y;		
+		}
+		
+		public void checkLeftBottom(int i) {
+			int x = returnLeftButtomArray(coordParent.get(i))[0];
+			int y = returnLeftButtomArray(coordParent.get(i))[1];
+	
+			if(!leftBottomSet)	{			
+				leftBottom[0] = x;		
+				leftBottom[1] = y;	
+				leftBottomSet = true;
+				}
+			if(leftBottomSet) {
+				if(leftBottom[0]>x) 
+					leftBottom[0] =x;			
+				if(leftBottom[1]<y) 
+					leftBottom[1] =y;	
+			}
+		}
+		
+		
+		
+		public void insertSentenceLocation() {
+			for(int i = 0; i<leftTop.length;i++)
+				sentenceLocation.add(leftTop[i]);
+			
+			for(int i = 0; i<rightTop.length;i++)
+				sentenceLocation.add(rightTop[i]);
+			
+			for(int i = 0; i<rightBottom.length;i++)
+				sentenceLocation.add(rightBottom[i]);
+			
+			for(int i = 0; i<leftBottom.length;i++)
+				sentenceLocation.add(leftBottom[i]);
+			
+		}
+		
+		public void intsertSentenceIndex(int num) {
+			sentenceIndex.add(sentenceLocation);
+		}
+		
+		public void setDeaultBooleanSet() {
+			rightTopSet =false;
+			leftTopSet =false;
+			leftBottomSet =false;
+			rightBottomSet =false;
+		}
+		public void setDefaultSentenceLocation() {			
+				//sentenceLocation.clear();
+				sentenceLocation = new ArrayList<Integer>();
+		}
+		
+		public void setDefaultSentenceIndex() {
+				sentenceIndex.clear();
+		}
+		
+		
+		public ArrayList<ArrayList<Integer>> getSentenceIndex() {
+			return sentenceIndex;
+		}
+
+		public void setSentenceIndex(ArrayList<ArrayList<Integer>> sentenceIndex) {
+			this.sentenceIndex = sentenceIndex;
+		}
+
+		public String[] getSentenceArray() {
+			return sentenceArray;
+		}
+
+		public void setSentenceArray(String[] sentenceArray) {
+			this.sentenceArray = sentenceArray;
+		}
+		
 		
 	
 			
