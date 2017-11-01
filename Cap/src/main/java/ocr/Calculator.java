@@ -20,20 +20,17 @@ public class Calculator {
 	private boolean leftBottomSet =false;
 	private boolean rightBottomSet =false;
 	
-	/*String[] element;
-	String[] comparison;
-	int[] elementToInt;
-	int[] comparisonToInt;
-	String[] temp;
-	String[] elementTemp;
-	String[] comparisonTemp;*/
-	
 		Calculator(ArrayList<String> des, ArrayList<ArrayList<Integer>> coordParent){
 			this.des = des;
 			this.coordParent = coordParent;
 			sentenceNum = initSentenceSize();
 		}	
 		
+		/**
+		 * @param coordParent
+		 * @return
+		 * 왼쪽 상단 좌표를 얻기 위함
+		 */
 		public int[] returnLeftTopArray(ArrayList<Integer> coordParent) {
 			int[] leftTop = new int[2];
 			for(int i = 0; i<leftTop.length; i++)	
@@ -41,7 +38,11 @@ public class Calculator {
 			
 			return leftTop;
 			}
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * 좌측 하단 좌표를 얻기 위함
+		 */
 		public int[] returnLeftButtomArray(ArrayList<Integer> coordParent) {
 			int[] leftButtom = new int[2];
 			for(int i = 0; i<leftButtom.length; i++)	
@@ -49,7 +50,11 @@ public class Calculator {
 			
 			return leftButtom;
 			}
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * 우측 상단 좌표를 얻기 위함
+		 */
 		public int[] returnRightTopArray(ArrayList<Integer> coordParent) {
 			int[] rightTop = new int[2];
 			for(int i = 0; i<rightTop.length; i++)	
@@ -57,7 +62,11 @@ public class Calculator {
 			
 			return rightTop;
 			}
-			
+		/**
+		 * @param coordParent
+		 * @return
+		 * 우측 하단 좌표를 얻기 위함
+		 */
 		public int[] returnRightButtomArray(ArrayList<Integer> coordParent) {
 			int[] rightButtom = new int[2];
 			for(int i = 0; i<rightButtom.length; i++)		
@@ -65,7 +74,12 @@ public class Calculator {
 			
 			return rightButtom;			
 		}
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * 좌측 상,하단의 평균 값을 반환
+		 * 
+		 */
 		public int[] returnLeftTopButtom_MiddleArray(int num, ArrayList<Integer> coordParent) {
 			int[] leftTop = returnLeftTopArray(coordParent);
 			int[] leftButtom = returnLeftButtomArray(coordParent);			
@@ -75,6 +89,12 @@ public class Calculator {
 			
 			return leftTopButtom_Middle;
 			}
+		/**
+		 * @param coordParent
+		 * @return
+		 * 우측 상,하단의 평균 값을 반환
+		 * 
+		 */
 		public int[] returnRightTopButtom_MiddleArray(int num,ArrayList<Integer> coordParent) {
 			int[] rightTop = returnRightTopArray(coordParent);
 			int[] rightButtom = returnRightButtomArray(coordParent);
@@ -84,7 +104,12 @@ public class Calculator {
 			
 			return rightTopButtom_Middle;
 			}
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * 좌측 하단, 우측 하단의 평균 값을 반환
+		 * 
+		 */
 		public int[] returnLeftButtomRightButtom_MiddleArray(ArrayList<Integer> coordParent) {
 			int[] leftButtom = returnLeftButtomArray(coordParent);
 			int[] rightButtom = returnRightButtomArray(coordParent);
@@ -94,7 +119,12 @@ public class Calculator {
 			
 			return leftButtomRightButton_Middle;
 			}
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * 좌측 상단, 우측 상단의 평균 값을 반환
+		 * 
+		 */
 		public int[] returnLeftTopRightTop_MiddleArray(ArrayList<Integer> coordParent) {
 			int[] leftTop = returnLeftTopArray(coordParent);
 			int[] rightTop = returnRightTopArray(coordParent);
@@ -173,7 +203,12 @@ public class Calculator {
 			}
 		
 		
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * X축의 형태소와의 거리 판단
+		 * 
+		 */
 		public boolean checkRow(ArrayList<Integer> coordParent, ArrayList<Integer> coordParentGet) {		
 			int x1Data = returnRightTopButtom_MiddleArray(coordParent, coordParentGet)[0];
 			int x2Data = returnLeftTopButtom_MiddleArray(coordParent, coordParentGet)[0];				
@@ -183,7 +218,12 @@ public class Calculator {
 			else
 				return false;
 		}
-		
+		/**
+		 * @param coordParent
+		 * @return
+		 * Y축의 형태로와 거리 판단
+		 * 
+		 */
 		public boolean checkColumn(ArrayList<Integer> coordParent, ArrayList<Integer> coordParentGet) {
 		
 			int y1Data = returnLeftButtomRightButtom_MiddleArray(coordParent, coordParentGet)[1];
@@ -194,6 +234,12 @@ public class Calculator {
 			else				
 				return false;
 		}
+		/**
+		 * @param coordParent
+		 * @return
+		 * Sentence와 Sentence위치를 저장할 공간의 크기 구함
+		 * 
+		 */
 		public int initSentenceSize() {
 			int sentenceNum = 0;
 			for(int i = 2; i<coordParent.size(); i++) {
@@ -206,8 +252,13 @@ public class Calculator {
 			
 			return sentenceNum;
 		}
-		
-		public void print1() {
+		/**
+		 * @param coordParent
+		 * @return
+		 * 실제 사용할 Sentence(Des)와 Sentence의 좌표 (SentenceIndex)를 구하는 메소드
+		 * 
+		 */
+		public void calresult() {
 			
 			StringBuffer sentence = new StringBuffer();			
 			int num=0;		
@@ -381,81 +432,7 @@ public class Calculator {
 
 		public void setSentenceArray(String[] sentenceArray) {
 			this.sentenceArray = sentenceArray;
-		}
-		
-		
-	
-			
-			//System.out.println(checkRow(coordParent.get(5), coordParent.get(6)));
-			//System.out.println(checkColumn(5, coordParent.get(1), coordParent.get(6)));
-		
-		
-			
-				
-		/*	for(int i = 1 ; i<coordParent.size() ; i++){
-				if(checkRow(i, coordParent)==false) {
-					sb.append(des.get(i));
-				}				
-				
-			}
-			System.out.println(sb.toString());*/
-		
-			
-		
-			
-		/*public void print() {
-			for(int i = 2 ; i<=coordParent.size();i++) {
-				element = coordParent.get(i-1).toArray(new String[coordParent.get(i-1).size()]);
-				comparison = coordParent.get(i).toArray(new String[coordParent.get(i).size()]);
-			
-				elementToInt = new int[element.length*2];
-				comparisonToInt = new int[comparison.length*2];
-				elementTemp = new String[element.length*2];
-				comparisonTemp = new String[comparison.length*2];
-				
-				for(int j = 0, z=0 ; j<element.length;j++) {
-					temp = element[j].split("\n");
-					for(int k = 0; k<temp.length;k++) {
-					elementTemp[z] = temp[k];
-					z++;
-					}
-				}
-				
-				for(int j = 0, z=0 ; j<comparison.length;j++) {
-					temp = comparison[j].split("\n");
-					for(int k = 0; k<temp.length;k++) {
-						comparisonTemp[z] = temp[k];
-					z++;
-					}
-				}
-				for(int j = 0 ; j<elementTemp.length;j++)					
-					System.out.println(elementTemp[j]);
-				//elementToInt = convertStringtoInt(elementTemp);
-				//comparisonToInt = convertStringtoInt(comparisonTemp);
-				
-			}
-		}*/
-		
-		/*public int[] convertStringtoInt(String[] Temp) {
-			int[] intElementTemp= new int[elementTemp.length];
-			for(int i = 0 ; i<elementTemp.length;i++) {
-				intElementTemp[i]=Integer.parseInt(elementTemp[i]);
-			}
-				
-				return intElementTemp;
-		}*/
-		
-		
-
-				
-		
-		
-		public boolean generatorSentence(int[] elementToInt, int[] comparisonToInt) {
-			
-			
-			return false;
-			
-		}
+		}		
 }
 
 
