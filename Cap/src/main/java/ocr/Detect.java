@@ -183,6 +183,7 @@ public ArrayList<String> getDes() {
    * @param bw A {@link PrintStream} to write detected features to.
    * @throws Exception on errors while closing the client.
    * @throws IOException on Input/Output errors.
+   * 
    */
  
   public void detectText(String filePath, PrintStream output) throws Exception, IOException {
@@ -213,18 +214,18 @@ public ArrayList<String> getDes() {
 	        for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
 	        	des.add(annotation.getDescription());	     
 	        	temp = annotation.getBoundingPoly();
-	        	Vertex vertex01 = temp.getVertices(0);
+	        	Vertex vertex01 = temp.getVertices(0);//annotation.getBoundingPoly의 결과를 Vertex형 객체에 넣음
 	        	Vertex vertex02 = temp.getVertices(1);
 	        	Vertex vertex03 = temp.getVertices(2);
 	        	Vertex vertex04 = temp.getVertices(3);
-	        	coord.add(vertex01.toString());
+	        	coord.add(vertex01.toString());//위에서 생성한 vertex객체를 coord(ArrayList<Integer>에 넣음
 	        	coord.add(vertex02.toString());
 	        	coord.add(vertex03.toString());
 	        	coord.add(vertex04.toString());  	
 	        	
 	        	
 
-	          output.printf("Text : %s\n", annotation.getDescription());
+	          output.printf("Text : %s\n", annotation.getDescription());//Vertex로 변환한 결과가 아닌 API리턴 데이터를 파일로 저장
 	          output.printf("Position : %s\r\n",annotation.getBoundingPoly()+"\r\n");
 	        }
 	      }

@@ -19,6 +19,8 @@ public class Calculator {
 	private boolean leftTopSet =false;
 	private boolean leftBottomSet =false;
 	private boolean rightBottomSet =false;
+	private int oneLetterSize = 0;
+	private int oneLetterSize2 = 0;
 	
 		Calculator(ArrayList<String> des, ArrayList<ArrayList<Integer>> coordParent){
 			this.des = des;
@@ -43,7 +45,7 @@ public class Calculator {
 		 * @return
 		 * 좌측 하단 좌표를 얻기 위함
 		 */
-		public int[] returnLeftButtomArray(ArrayList<Integer> coordParent) {
+		public int[] returnLeftBottomArray(ArrayList<Integer> coordParent) {
 			int[] leftButtom = new int[2];
 			for(int i = 0; i<leftButtom.length; i++)	
 				leftButtom[i] = coordParent.get(i+6);
@@ -67,7 +69,7 @@ public class Calculator {
 		 * @return
 		 * 우측 하단 좌표를 얻기 위함
 		 */
-		public int[] returnRightButtomArray(ArrayList<Integer> coordParent) {
+		public int[] returnRightBottomArray(ArrayList<Integer> coordParent) {
 			int[] rightButtom = new int[2];
 			for(int i = 0; i<rightButtom.length; i++)		
 				rightButtom[i] = coordParent.get(i+4);
@@ -80,51 +82,51 @@ public class Calculator {
 		 * 좌측 상,하단의 평균 값을 반환
 		 * 
 		 */
-		public int[] returnLeftTopButtom_MiddleArray(int num, ArrayList<Integer> coordParent) {
+		/*public int[] returnLeftTopButtom_MiddleArray(int num, ArrayList<Integer> coordParent) {
 			int[] leftTop = returnLeftTopArray(coordParent);
-			int[] leftButtom = returnLeftButtomArray(coordParent);			
+			int[] leftButtom = returnLeftBottomArray(coordParent);			
 			int[] leftTopButtom_Middle = new int[2];
 			for(int i = 0; i<leftTopButtom_Middle.length; i++) 	
 				leftTopButtom_Middle[i] = Math.abs((leftTop[i]+leftButtom[i])/2);	
 			
 			return leftTopButtom_Middle;
 			}
-		/**
+		*//**
 		 * @param coordParent
 		 * @return
 		 * 우측 상,하단의 평균 값을 반환
 		 * 
-		 */
+		 *//*
 		public int[] returnRightTopButtom_MiddleArray(int num,ArrayList<Integer> coordParent) {
 			int[] rightTop = returnRightTopArray(coordParent);
-			int[] rightButtom = returnRightButtomArray(coordParent);
+			int[] rightButtom = returnRightBottomArray(coordParent);
 			int[] rightTopButtom_Middle = new int[2];
 			for(int i = 0; i<rightTopButtom_Middle.length; i++)	
 				rightTopButtom_Middle[i] = Math.abs((rightTop[i]+rightButtom[i])/2);
 			
 			return rightTopButtom_Middle;
-			}
-		/**
+			}*/
+	/*	*//**
 		 * @param coordParent
 		 * @return
 		 * 좌측 하단, 우측 하단의 평균 값을 반환
 		 * 
-		 */
+		 *//*
 		public int[] returnLeftButtomRightButtom_MiddleArray(ArrayList<Integer> coordParent) {
-			int[] leftButtom = returnLeftButtomArray(coordParent);
-			int[] rightButtom = returnRightButtomArray(coordParent);
+			int[] leftButtom = returnLeftBottomArray(coordParent);
+			int[] rightButtom = returnRightBottomArray(coordParent);
 			int[] leftButtomRightButton_Middle = new int[2];
 			for(int i = 0; i<leftButtomRightButton_Middle.length; i++)	
 				leftButtomRightButton_Middle[i] = Math.abs((leftButtom[i]+rightButtom[i])/2);
 			
 			return leftButtomRightButton_Middle;
 			}
-		/**
+		*//**
 		 * @param coordParent
 		 * @return
 		 * 좌측 상단, 우측 상단의 평균 값을 반환
 		 * 
-		 */
+		 *//*
 		public int[] returnLeftTopRightTop_MiddleArray(ArrayList<Integer> coordParent) {
 			int[] leftTop = returnLeftTopArray(coordParent);
 			int[] rightTop = returnRightTopArray(coordParent);
@@ -133,7 +135,7 @@ public class Calculator {
 				leftTopRightTop_Middle[i] = Math.abs((leftTop[i]+rightTop[i])/2);
 			
 			return leftTopRightTop_Middle;
-			}
+			}*/
 		
 		
 			//@overriding
@@ -144,9 +146,9 @@ public class Calculator {
 		 * @--- X축의 평균을 구함
 		 * @return
 		 */
-		public int[] returnLeftTopButtom_MiddleArray(ArrayList<Integer> coordParentCurrent ,ArrayList<Integer> coordParentNext ) {
-			int[] leftTop = returnLeftTopArray(coordParentNext);
-			int[] leftButtom = returnLeftButtomArray(coordParentNext);			
+		public int[] returnLeftTopBottom_MiddleArray(ArrayList<Integer> coordParentCurrent) {
+			int[] leftTop = returnLeftTopArray(coordParentCurrent);
+			int[] leftButtom = returnLeftBottomArray(coordParentCurrent);			
 			int[] leftTopButtom_Middle = new int[2];
 			for(int i = 0; i<leftTopButtom_Middle.length; i++) 	
 				leftTopButtom_Middle[i] = Math.abs((leftTop[i]+leftButtom[i])/2);	
@@ -160,9 +162,9 @@ public class Calculator {
 		 * @--- Y축의 평균을 구함
 		 * @return
 		 */
-		public int[] returnLeftTopRightTop_MiddleArray(ArrayList<Integer> coordParentCurrent, ArrayList<Integer> coordParentNext) {
-			int[] leftTop = returnLeftTopArray(coordParentNext);
-			int[] rightTop = returnRightTopArray(coordParentNext);
+		public int[] returnLeftTopRightTop_MiddleArray(ArrayList<Integer> coordParentCurrent) {
+			int[] leftTop = returnLeftTopArray(coordParentCurrent);
+			int[] rightTop = returnRightTopArray(coordParentCurrent);
 			int[] leftTopRightTop_Middle = new int[2];
 			for(int i = 0; i<leftTopRightTop_Middle.length; i++)	
 				leftTopRightTop_Middle[i] = Math.abs((leftTop[i]+rightTop[i])/2);
@@ -177,9 +179,9 @@ public class Calculator {
 		 * @return
 		 */
 		
-		public int[] returnRightTopButtom_MiddleArray(ArrayList<Integer> coordParentCurrent, ArrayList<Integer> coordParentNext) {
+		public int[] returnRightTopBottom_MiddleArray(ArrayList<Integer> coordParentCurrent) {
 			int[] rightTop = returnRightTopArray(coordParentCurrent);
-			int[] rightButtom = returnRightButtomArray(coordParentCurrent);
+			int[] rightButtom = returnRightBottomArray(coordParentCurrent);
 			int[] rightTopButtom_Middle = new int[2];
 			for(int i = 0; i<rightTopButtom_Middle.length; i++)	
 				rightTopButtom_Middle[i] = Math.abs((rightTop[i]+rightButtom[i])/2);
@@ -192,9 +194,9 @@ public class Calculator {
 		 * @--- Y축의 평균을 구함
 		 * @return
 		 */
-		public int[] returnLeftButtomRightButtom_MiddleArray(ArrayList<Integer> coordParentCurrent,  ArrayList<Integer> coordParentNext) {
-			int[] leftButtom = returnLeftButtomArray(coordParentCurrent);
-			int[] rightButtom = returnRightButtomArray(coordParentCurrent);
+		public int[] returnLeftBottomRightBottom_MiddleArray(ArrayList<Integer> coordParentCurrent) {
+			int[] leftButtom = returnLeftBottomArray(coordParentCurrent);
+			int[] rightButtom = returnRightBottomArray(coordParentCurrent);
 			int[] leftButtomRightButton_Middle = new int[2];
 			for(int i = 0; i<leftButtomRightButton_Middle.length; i++)	
 				leftButtomRightButton_Middle[i] = Math.abs((leftButtom[i]+rightButtom[i])/2);
@@ -203,6 +205,20 @@ public class Calculator {
 			}
 		
 		
+		public int setVerticalLetterLen(ArrayList<Integer> data) {
+			int y1 = returnRightTopArray(data)[1];
+			int y2 = returnRightBottomArray(data)[1];
+			int result = y2-y1;
+			return result;
+		}
+		public int setLineSpaceSize() {
+			int result;
+			int verticalLen = oneLetterSize;
+			result = verticalLen;
+			
+			
+			return result;
+		}
 		/**
 		 * @param coordParent
 		 * @return
@@ -210,10 +226,10 @@ public class Calculator {
 		 * 
 		 */
 		public boolean checkRow(ArrayList<Integer> coordParent, ArrayList<Integer> coordParentGet) {		
-			int x1Data = returnRightTopButtom_MiddleArray(coordParent, coordParentGet)[0];
-			int x2Data = returnLeftTopButtom_MiddleArray(coordParent, coordParentGet)[0];				
+			int x1Data = returnRightTopBottom_MiddleArray(coordParent)[0];
+			int x2Data = returnLeftTopBottom_MiddleArray(coordParentGet)[0];				
 			
-			if(Math.abs((x1Data-x2Data))<15)			
+			if(Math.abs((x1Data-x2Data))<oneLetterSize+oneLetterSize*0.3)			
 				return true;
 			else
 				return false;
@@ -221,15 +237,15 @@ public class Calculator {
 		/**
 		 * @param coordParent
 		 * @return
-		 * Y축의 형태로와 거리 판단
+		 * Y축의 형태소와 거리 판단
 		 * 
 		 */
 		public boolean checkColumn(ArrayList<Integer> coordParent, ArrayList<Integer> coordParentGet) {
-		
-			int y1Data = returnLeftButtomRightButtom_MiddleArray(coordParent, coordParentGet)[1];
-			int y2Data = returnLeftTopRightTop_MiddleArray(coordParent, coordParentGet)[1];
-
-			if(Math.abs((y1Data-y2Data))<15)
+				
+			int y1Data = returnLeftBottomRightBottom_MiddleArray(coordParent)[1];
+			int y2Data = returnLeftTopRightTop_MiddleArray(coordParentGet)[1];		
+			System.out.println(oneLetterSize2);
+			if(Math.abs((y1Data-y2Data)) < oneLetterSize2+oneLetterSize2*0.3 )
 				return true;
 			else				
 				return false;
@@ -243,11 +259,19 @@ public class Calculator {
 		public int initSentenceSize() {
 			int sentenceNum = 0;
 			for(int i = 2; i<coordParent.size(); i++) {
-				if(i==2&&!coordParent.isEmpty())
+				if(i==2&&!coordParent.isEmpty()) {
+					oneLetterSize = setVerticalLetterLen(coordParent.get(1));
+					oneLetterSize2 = setLineSpaceSize();
 					sentenceNum = sentenceNum+1;
+				}
+				
 				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
 					sentenceNum = sentenceNum + 1;
-					}			
+					}	
+				if(checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
+					sentenceNum = sentenceNum + 1;
+					}	
+			
 			}
 			
 			return sentenceNum;
@@ -272,10 +296,22 @@ public class Calculator {
 						
 				if(i==2)
 				{
-					sentence.append(des.get(1));			
+					sentence.append(des.get(1));				
+					System.out.println(oneLetterSize);					
 				}
-				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
-					
+				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
+					sentenceArray[num] = sentence.toString();
+					insertSentenceLocation();				
+					intsertSentenceIndex(num);
+					setDeaultBooleanSet();
+					num++;
+					sentence.delete(0, sentence.length());
+					sentence.append(des.get(i));
+					index = index + 1;						
+					setDefaultSentenceLocation();					
+					}
+				if(checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
+										
 					sentenceArray[num] = sentence.toString();
 					insertSentenceLocation();				
 					intsertSentenceIndex(num);
@@ -285,35 +321,38 @@ public class Calculator {
 					sentence.append(des.get(i));
 					index = index + 1;						
 					setDefaultSentenceLocation();
-				
+					System.out.println(oneLetterSize2);
 					}
+				
 				
 				else if(checkRow(coordParent.get(i-1), coordParent.get(i))){
 					sentence.append(des.get(i));
-					checkLeftTop(i);
-					checkRightTop(i);
-					checkRightBottom(i);
-					checkLeftBottom(i);					
+					checkLeftTop(i, coordParent);
+					checkRightTop(i, coordParent);
+					checkRightBottom(i, coordParent);
+					checkLeftBottom(i, coordParent);		
+					System.out.println(oneLetterSize);
 					}
-				else if(checkColumn(coordParent.get(i-1), coordParent.get(i))) {
-					sentence.append(des.get(i));	
-					checkLeftTop(i);
-					checkRightTop(i);
-					checkRightBottom(i);
-					checkLeftBottom(i);
+				else if(checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
+					sentence.append(des.get(i));					
+					checkLeftTop(i, coordParent);
+					checkRightTop(i, coordParent);
+					checkRightBottom(i, coordParent);
+					checkLeftBottom(i, coordParent);
+					/*oneLetterSize = setVerticalLetterLen(coordParent.get(1));
+					oneLetterSize2 = setLineSpaceSize();*/
 					}
 				if(i==coordParent.size()-1) {
 					sentenceArray[num] = sentence.toString();
 					insertSentenceLocation();
 					intsertSentenceIndex(num);
-				}
-				}
-			
+					}
+				}			
 		}
 		
-		public void checkLeftTop(int i) {
-			int x = returnLeftTopArray(coordParent.get(i))[0];
-			int y = returnLeftTopArray(coordParent.get(i))[1];
+		public void checkLeftTop(int i, ArrayList<ArrayList<Integer>> coord) {
+			int x = returnLeftTopArray(coord.get(i))[0];
+			int y = returnLeftTopArray(coord.get(i))[1];
 				if(!leftTopSet)	{			
 					leftTop[0] = x;		
 					leftTop[1] = y;	
@@ -326,9 +365,9 @@ public class Calculator {
 						leftTop[1] = y;
 				}
 
-		public void checkRightTop(int i) {	
-			int x = returnRightTopArray(coordParent.get(i))[0];
-			int y = returnRightTopArray(coordParent.get(i))[1];
+		public void checkRightTop(int i, ArrayList<ArrayList<Integer>> coord) {	
+			int x = returnRightTopArray(coord.get(i))[0];
+			int y = returnRightTopArray(coord.get(i))[1];
 	 
 			if(!rightTopSet)	{			
 					rightTop[0] = x;		
@@ -348,9 +387,9 @@ public class Calculator {
 		
 		
 		
-		public void checkRightBottom(int i) {
-			int x = returnRightButtomArray(coordParent.get(i))[0];
-			int y = returnRightButtomArray(coordParent.get(i))[1];
+		public void checkRightBottom(int i, ArrayList<ArrayList<Integer>> coord) {
+			int x = returnRightBottomArray(coord.get(i))[0];
+			int y = returnRightBottomArray(coord.get(i))[1];
 	
 			if(!rightBottomSet)	{			
 				rightBottom[0] = x;		
@@ -364,9 +403,9 @@ public class Calculator {
 					rightBottom[1] =y;		
 		}
 		
-		public void checkLeftBottom(int i) {
-			int x = returnLeftButtomArray(coordParent.get(i))[0];
-			int y = returnLeftButtomArray(coordParent.get(i))[1];
+		public void checkLeftBottom(int i, ArrayList<ArrayList<Integer>> coord) {
+			int x = returnLeftBottomArray(coord.get(i))[0];
+			int y = returnLeftBottomArray(coord.get(i))[1];
 	
 			if(!leftBottomSet)	{			
 				leftBottom[0] = x;		

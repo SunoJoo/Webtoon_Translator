@@ -16,9 +16,13 @@ public class Run {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		String path1 = "./src/main/resources/webtoon_img/";
+		ImageProcessing ip = new ImageProcessing(path1);
+		ip.start(path1);
 		//new Crawler();		
-		Detect detect = new Detect();
-		String path = "./src/main/resources/webtoon_img/_35.jpg";
+		/*Detect detect = new Detect();
+		
+		String path = "./src/main/resources/webtoon_img/_mergeimage.jpg";
 		File f = new File("./text/lines.txt");
 		PrintStream p;	
 		Coordinator coordinator;
@@ -47,9 +51,8 @@ public class Run {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		
 	}
-
 }
