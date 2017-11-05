@@ -243,8 +243,7 @@ public class Calculator {
 		public boolean checkColumn(ArrayList<Integer> coordParent, ArrayList<Integer> coordParentGet) {
 				
 			int y1Data = returnLeftBottomRightBottom_MiddleArray(coordParent)[1];
-			int y2Data = returnLeftTopRightTop_MiddleArray(coordParentGet)[1];		
-			System.out.println(oneLetterSize2);
+			int y2Data = returnLeftTopRightTop_MiddleArray(coordParentGet)[1];					
 			if(Math.abs((y1Data-y2Data)) < oneLetterSize2+oneLetterSize2*0.3 )
 				return true;
 			else				
@@ -289,15 +288,13 @@ public class Calculator {
 		
 			sentenceArray = new String[sentenceNum];
 			sentenceIndex = new ArrayList<ArrayList<Integer>>();
-			sentenceLocation = new ArrayList<Integer>();
+			sentenceLocation = new ArrayList<Integer>();	
 			
-			System.out.println(sentenceArray.length);
 			for(int i = 2, index=0; i<coordParent.size(); i++) {		
 						
 				if(i==2)
 				{
-					sentence.append(des.get(1));				
-					System.out.println(oneLetterSize);					
+					sentence.append(des.get(1));											
 				}
 				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
 					sentenceArray[num] = sentence.toString();
@@ -320,8 +317,7 @@ public class Calculator {
 					sentence.delete(0, sentence.length());
 					sentence.append(des.get(i));
 					index = index + 1;						
-					setDefaultSentenceLocation();
-					System.out.println(oneLetterSize2);
+					setDefaultSentenceLocation();					
 					}
 				
 				
@@ -330,8 +326,7 @@ public class Calculator {
 					checkLeftTop(i, coordParent);
 					checkRightTop(i, coordParent);
 					checkRightBottom(i, coordParent);
-					checkLeftBottom(i, coordParent);		
-					System.out.println(oneLetterSize);
+					checkLeftBottom(i, coordParent);							
 					}
 				else if(checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
 					sentence.append(des.get(i));					
