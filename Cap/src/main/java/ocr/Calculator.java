@@ -76,70 +76,7 @@ public class Calculator {
 			
 			return rightButtom;			
 		}
-		/**
-		 * @param coordParent
-		 * @return
-		 * 좌측 상,하단의 평균 값을 반환
-		 * 
-		 */
-		/*public int[] returnLeftTopButtom_MiddleArray(int num, ArrayList<Integer> coordParent) {
-			int[] leftTop = returnLeftTopArray(coordParent);
-			int[] leftButtom = returnLeftBottomArray(coordParent);			
-			int[] leftTopButtom_Middle = new int[2];
-			for(int i = 0; i<leftTopButtom_Middle.length; i++) 	
-				leftTopButtom_Middle[i] = Math.abs((leftTop[i]+leftButtom[i])/2);	
-			
-			return leftTopButtom_Middle;
-			}
-		*//**
-		 * @param coordParent
-		 * @return
-		 * 우측 상,하단의 평균 값을 반환
-		 * 
-		 *//*
-		public int[] returnRightTopButtom_MiddleArray(int num,ArrayList<Integer> coordParent) {
-			int[] rightTop = returnRightTopArray(coordParent);
-			int[] rightButtom = returnRightBottomArray(coordParent);
-			int[] rightTopButtom_Middle = new int[2];
-			for(int i = 0; i<rightTopButtom_Middle.length; i++)	
-				rightTopButtom_Middle[i] = Math.abs((rightTop[i]+rightButtom[i])/2);
-			
-			return rightTopButtom_Middle;
-			}*/
-	/*	*//**
-		 * @param coordParent
-		 * @return
-		 * 좌측 하단, 우측 하단의 평균 값을 반환
-		 * 
-		 *//*
-		public int[] returnLeftButtomRightButtom_MiddleArray(ArrayList<Integer> coordParent) {
-			int[] leftButtom = returnLeftBottomArray(coordParent);
-			int[] rightButtom = returnRightBottomArray(coordParent);
-			int[] leftButtomRightButton_Middle = new int[2];
-			for(int i = 0; i<leftButtomRightButton_Middle.length; i++)	
-				leftButtomRightButton_Middle[i] = Math.abs((leftButtom[i]+rightButtom[i])/2);
-			
-			return leftButtomRightButton_Middle;
-			}
-		*//**
-		 * @param coordParent
-		 * @return
-		 * 좌측 상단, 우측 상단의 평균 값을 반환
-		 * 
-		 *//*
-		public int[] returnLeftTopRightTop_MiddleArray(ArrayList<Integer> coordParent) {
-			int[] leftTop = returnLeftTopArray(coordParent);
-			int[] rightTop = returnRightTopArray(coordParent);
-			int[] leftTopRightTop_Middle = new int[2];
-			for(int i = 0; i<leftTopRightTop_Middle.length; i++)	
-				leftTopRightTop_Middle[i] = Math.abs((leftTop[i]+rightTop[i])/2);
-			
-			return leftTopRightTop_Middle;
-			}*/
-		
-		
-			//@overriding
-		
+				
 		/**
 		 * @param coordParentCurrent
 		 * @param coordParentNext
@@ -449,9 +386,8 @@ public class Calculator {
 		
 		public void setDefaultSentenceIndex() {
 				sentenceIndex.clear();
-		}
-		
-		
+		}		
+	
 		public ArrayList<ArrayList<Integer>> getSentenceIndex() {
 			return sentenceIndex;
 		}

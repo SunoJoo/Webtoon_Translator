@@ -19,14 +19,15 @@ public class Run {
 		//String path1 = "./src/main/resources/webtoon_img/";
 		//ImageProcessing ip = new ImageProcessing(path1);
 		//ip.start(path1);
-		//new Crawler();		
-		Detect detect = new Detect();
+		//new Crawler("25455","484");		
+		/*Detect detect = new Detect();
 		
-		String path = "./src/main/resources/webtoon_img/_42.jpg";
+		String path = "./src/main/resources/webtoon_img/_35.jpg";
 		File f = new File("./text/lines.txt");
 		PrintStream p;	
 		Coordinator coordinator;
 		Calculator calculator;		
+		ResultData result;
 		
 		try {		
 			p = new PrintStream(f);
@@ -36,10 +37,17 @@ public class Run {
 			coordinator.coordinate();
 			calculator = new Calculator(coordinator.getDes(),coordinator.getCoordParent());
 			calculator.calresult();
+			result = new ResultData();
 			for(int i = 0; i<calculator.getSentenceArray().length;i++) {				
-				System.out.println(calculator.getSentenceArray()[i]);
-				System.out.println(calculator.getSentenceIndex().get(i));						
+				Trans translator = new Trans();
+				result.addText(translator.translator(calculator.getSentenceArray()[i])+"\n");				
 			}
+			result.setPosition(calculator.getSentenceIndex());			
+					
+				System.out.println(result.getText());
+				System.out.println(result.getPosition());
+			
+			
 			
 			
 			
@@ -51,8 +59,9 @@ public class Run {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
+
 		
 	}
 }
