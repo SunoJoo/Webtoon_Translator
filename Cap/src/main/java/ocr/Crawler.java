@@ -17,20 +17,20 @@ import org.jsoup.select.Elements;
 public class Crawler {
 	static int i = 0; //나중에 이미지 파일갯수가 됨 for문을 이용해서 이미지-텍스트OCR(147번 라인)
 	
-	private String saveDir = "./src/main/resources/webtoon_img/"; //저장 디렉터리 경로(동일한 주소로 통일하기 위해서)
+	private String saveDir = "/Users/Suno Joo/git/Cap/src/main/resources/webtoon_img"; //저장 디렉터리 경로(동일한 주소로 통일하기 위해서)
 	
-	//이부분이 필터가 필요////////직접 사이트에서 확인해야되는 불편함///
-	private String webtoonId = "25455"; //웹툰 고유번호 (679519 : 대학일기)
-	private String pagenum = "482"; //웹툰 몇화(2017.10.13 기준 최신웹툰) "1"이 첫화
+	//이부분이 필터가 필요////////직접 사이트에서 확인해야되는 불편함///	
 	////////////////////////////////////////////////
 	
 	
-	Crawler(){
+	public Crawler(String ref){
 		/*
 		 * 이 부분도 수정을 희망함 그래서 일단 생성자로 빼놓음
 		 * (내가 보고 싶은 웹툰이 나오게 하고 싶다 -> 고유번호를 디비에 저장)
-		 */
-		parse("http://comic.naver.com/webtoon/detail.nhn?titleId="+webtoonId+"&no="+pagenum+"&weekday=tue");
+		 * toonName, Num 삭제 
+		 */	
+		parse(ref);
+		//parse("http://comic.naver.com/webtoon/detail.nhn?titleId="+webtoonId+"&no="+pagenum+"&weekday=tue");
 	}
 	
 	
@@ -43,6 +43,7 @@ public class Crawler {
 	
 	//HTML 파싱하는 부분
 	public void parse(String url) {
+		
         try {
             Document doc = getDocument(url);
             Elements images = doc.select("div.wt_viewer > img"); // 이미지를 가져온다.
@@ -53,9 +54,11 @@ public class Crawler {
                 String imageName = img.substring(img.lastIndexOf("/"));
                  
                 Thread t = new ImageSaver(img, imageDir, imageName);
+               
                 i++; //이미지 파일을 만들때마다 i값이 증가. 나중에 이미지 갯수가 됨
                 
                 t.start();
+                t.join();
             } // end for
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -130,7 +133,7 @@ class ImageSaver extends Thread {
         } catch(Exception ex) {
             System.out.println("IMAGENAME : " + status);
             ex.printStackTrace();
-        } finally {
+        } finally {        	
         }
     }
 }
