@@ -26,8 +26,11 @@ public class Run {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of a36e567... Revert "32"
+=======
+>>>>>>> parent of 4507a42... rollback
 =======
 >>>>>>> parent of 4507a42... rollback
 <<<<<<< HEAD
@@ -51,8 +54,11 @@ public class Run {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of a36e567... Revert "32"
+=======
+>>>>>>> parent of 4507a42... rollback
 			detect.detectText(path, p);
 =======
 			
@@ -84,6 +90,7 @@ public class Run {
 			detect.detectText(path, p);		
 >>>>>>> parent of c90041f... 32
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 3747e7f... Merge branch 'master' of
 =======
@@ -91,6 +98,8 @@ public class Run {
 >>>>>>> parent of c90041f... 32
 =======
 >>>>>>> parent of a36e567... Revert "32"
+=======
+>>>>>>> parent of 4507a42... rollback
 =======
 >>>>>>> parent of 4507a42... rollback
 				
@@ -140,6 +149,9 @@ public class Run {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 4507a42... rollback
 =======
 >>>>>>> parent of 4507a42... rollback
 <<<<<<< HEAD
@@ -156,6 +168,7 @@ public class Run {
 <<<<<<< HEAD
 >>>>>>> parent of c90041f... 32
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 3747e7f... Merge branch 'master' of
 =======
@@ -163,6 +176,8 @@ public class Run {
 =======
 <<<<<<< HEAD
 >>>>>>> parent of a36e567... Revert "32"
+=======
+>>>>>>> parent of 4507a42... rollback
 =======
 >>>>>>> parent of 4507a42... rollback
 		} catch (Exception e) {
