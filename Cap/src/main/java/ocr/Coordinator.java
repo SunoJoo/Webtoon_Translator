@@ -25,7 +25,7 @@ public class Coordinator {
 		for(int i = 1; i<=coordChild.size();i++) {	
 			String[] tempString= new String[2];
 			int[] tempInt= new int[2];
-			
+			System.out.println(coordChild);
 			tempString = (coordChild.get(i-1).toString().replaceAll("x: ", "").replaceAll("y: ", "").substring(0, coordChild.get(i-1).length()-7).split("\n"));
 			
 			for(int j = 0; j<tempString.length; j++)

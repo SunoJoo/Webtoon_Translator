@@ -5,46 +5,91 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 
 public class ImageProcessing {
+	final static int MAXHEIGHT = 65536;
+	
+	Graphics2D[] graphics;
 	BufferedImage[] image;
+	BufferedImage[] mergedImage;
 	String path;
 	String[] filesName;
 	int maxWidth= 0;
 	int maxHeight = 0;
+	int heightArray[];
+	int size;
+	ArrayList<Integer> imageNumber;
 	ImageProcessing(String path){
 		this.path = path;
 	}
-	public void start(String path) {	
+	public void start() {	
 		getFileName();
+		for(int i = 0; i<filesName.length;i++) {
+			System.out.println(filesName[i]);
+		}
 		image = new BufferedImage[filesName.length];
 		
-		try {
+		
+		
+		try {			
 			insertBufferedImage();
 			int width =0;
-			int height = 0;
+			int height = 0;	
 			
 			for(int i = 0; i<image.length; i++) {
 				maxWidth =Math.max(maxWidth, image[i].getWidth());				
 				width = maxWidth;
 				maxHeight = maxHeight + image[i].getHeight();
 				height = maxHeight;
+				if(height>MAXHEIGHT) {
+					imageNumber.add(i-1);
+					size = (height/MAXHEIGHT)+1;	
+				}
 			}
 			
-			System.out.println(width);
-			System.out.println(height);
+			if(height>MAXHEIGHT) {
+							
+			
+				int heightTemp = MAXHEIGHT;
+				
+				for(int i = 0; i<size; i++) {
+					heightArray[i] = heightTemp;
+					heightTemp = height%MAXHEIGHT;
+				}				
+			}	
+			
+		/*	for(int i = 0; i<heightArray.length;i++) {
+				System.out.println(heightArray[i]);
+			}*/
+		
 
-			BufferedImage mergedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-			Graphics2D graphics = (Graphics2D) mergedImage.getGraphics();
+			mergedImage = new BufferedImage[size];
+			for(int i = 0 ;i<mergedImage.length; i++) {
+				mergedImage[i] = new BufferedImage(width, heightArray[i], BufferedImage.TYPE_INT_RGB);
+				graphics = new Graphics2D[size];
+				graphics[i] = (Graphics2D) mergedImage[i].getGraphics();
+				graphics[i].setBackground(Color.WHITE);
+				
+				
+			}
+				
+		
 
-			graphics.setBackground(Color.WHITE);
-			graphics.drawImage(image[0], 0, 0, null);
-			graphics.drawImage(image[1], 0, image[0].getHeight(), null);
+			for(int i = 0; i<size;i++) {
+				for(int j = 0;j<imageNumber.get(j);j++) {
+					/*graphics.drawImage(image[j], 0, 0, null);
+					graphics.drawImage(image[j+1], 0, image[j].getHeight(), null);*/
+				}
+		
+			}
 			
 			
-			ImageIO.write(mergedImage, "jpg", new File("./src/main/resources/webtoon_img/_mergeimage.jpg"));
 			
+			
+			/*ImageIO.write(mergedImage, "jpg", new File("./src/main/resources/webtoon_img/_mergeimage.jpg"));*/			
 			// ImageIO.write(mergedImage, "jpg", new File("c:\\mergedImage.jpg"));
 			// ImageIO.write(mergedImage, "png", new File("c:\\mergedImage.png"));
 		} catch (IOException ioe) {
@@ -67,6 +112,6 @@ public class ImageProcessing {
 	
 	public void insertBufferedImage() throws IOException {
 		for(int i = 0; i<image.length; i++)
-			 image[i] = ImageIO.read(new File("./src/main/resources/webtoon_img/"+filesName[i]));
+			 image[i] = ImageIO.read(new File(path+"/_"+(i+1)+".jpg"));
 	}
 }
