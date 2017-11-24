@@ -21,6 +21,7 @@ public class FileWR {
 	public String[] readFromFile() {
 		file = new File("./text/lines.txt");
 		
+		
 		try {
 			stringbuffer = new StringBuffer();
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
