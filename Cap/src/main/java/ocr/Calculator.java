@@ -166,7 +166,7 @@ public class Calculator {
 			int x1Data = returnRightTopBottom_MiddleArray(coordParent)[0];
 			int x2Data = returnLeftTopBottom_MiddleArray(coordParentGet)[0];				
 			
-			if(Math.abs((x1Data-x2Data))<oneLetterSize+oneLetterSize*0.3)			
+			if(Math.abs((x1Data-x2Data))<oneLetterSize+oneLetterSize*1)			
 				return true;
 			else
 				return false;
@@ -181,7 +181,7 @@ public class Calculator {
 				
 			int y1Data = returnLeftBottomRightBottom_MiddleArray(coordParent)[1];
 			int y2Data = returnLeftTopRightTop_MiddleArray(coordParentGet)[1];					
-			if(Math.abs((y1Data-y2Data)) < oneLetterSize2+oneLetterSize2*0.3 )
+			if(Math.abs((y1Data-y2Data)) < oneLetterSize2+oneLetterSize2*1 )
 				return true;
 			else				
 				return false;
@@ -218,7 +218,7 @@ public class Calculator {
 		 * 실제 사용할 Sentence(Des)와 Sentence의 좌표 (SentenceIndex)를 구하는 메소드
 		 * 
 		 */
-		public void calresult() {
+		public void calResult() {
 			
 			StringBuffer sentence = new StringBuffer();			
 			int num=0;		
@@ -255,25 +255,17 @@ public class Calculator {
 					sentence.append(des.get(i));
 					index = index + 1;						
 					setDefaultSentenceLocation();					
-					}
+					}			
 				
 				
-				else if(checkRow(coordParent.get(i-1), coordParent.get(i))){
+				else if(checkRow(coordParent.get(i-1), coordParent.get(i))||checkColumn(coordParent.get(i-1), coordParent.get(i))){
 					sentence.append(des.get(i));
 					checkLeftTop(i, coordParent);
 					checkRightTop(i, coordParent);
 					checkRightBottom(i, coordParent);
 					checkLeftBottom(i, coordParent);							
-					}
-				else if(checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
-					sentence.append(des.get(i));					
-					checkLeftTop(i, coordParent);
-					checkRightTop(i, coordParent);
-					checkRightBottom(i, coordParent);
-					checkLeftBottom(i, coordParent);
-					/*oneLetterSize = setVerticalLetterLen(coordParent.get(1));
-					oneLetterSize2 = setLineSpaceSize();*/
-					}
+					}		
+					
 				if(i==coordParent.size()-1) {
 					sentenceArray[num] = sentence.toString();
 					insertSentenceLocation();
