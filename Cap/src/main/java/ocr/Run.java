@@ -25,9 +25,13 @@ public class Run {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 3747e7f... Merge branch 'master' of
 		String path = "./src/main/resources/webtoon_img/_13.jpg";
+=======
+		String path = "./src/main/resources/webtoon_img/_42.jpg";
+>>>>>>> parent of c90041f... 32
 =======
 		String path = "./src/main/resources/webtoon_img/_42.jpg";
 >>>>>>> parent of c90041f... 32
@@ -38,6 +42,7 @@ public class Run {
 		
 		try {		
 			p = new PrintStream(f);
+<<<<<<< HEAD
 <<<<<<< HEAD
 			detect.detectText(path, p);
 <<<<<<< HEAD
@@ -71,6 +76,9 @@ public class Run {
 >>>>>>> parent of c90041f... 32
 =======
 >>>>>>> parent of 3747e7f... Merge branch 'master' of
+=======
+			detect.detectText(path, p);		
+>>>>>>> parent of c90041f... 32
 				
 			coordinator = new Coordinator(detect.getDes(),detect.getCoord());
 			coordinator.coordinate();
@@ -84,7 +92,10 @@ public class Run {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of c90041f... 32
 			
 			
 		
@@ -92,9 +103,12 @@ public class Run {
 			
 			
 			
+<<<<<<< HEAD
 >>>>>>> parent of c90041f... 32
 =======
 >>>>>>> parent of 3747e7f... Merge branch 'master' of
+=======
+>>>>>>> parent of c90041f... 32
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
