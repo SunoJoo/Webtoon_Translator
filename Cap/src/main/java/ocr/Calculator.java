@@ -19,8 +19,8 @@ public class Calculator {
 	private boolean leftTopSet =false;
 	private boolean leftBottomSet =false;
 	private boolean rightBottomSet =false;
-	private int oneLetterSize = 0;
-	private int oneLetterSize2 = 0;
+	private double oneLetterSize = 0;
+	private double oneLetterSize2 = 0;
 	
 		Calculator(ArrayList<String> des, ArrayList<ArrayList<Integer>> coordParent){
 			this.des = des;
@@ -148,9 +148,9 @@ public class Calculator {
 			int result = y2-y1;
 			return result;
 		}
-		public int setLineSpaceSize() {
-			int result;
-			int verticalLen = oneLetterSize;
+		public double setLineSpaceSize() {
+			double result;
+			double verticalLen = oneLetterSize;
 			result = verticalLen;
 			
 			
@@ -181,7 +181,7 @@ public class Calculator {
 				
 			int y1Data = returnLeftBottomRightBottom_MiddleArray(coordParent)[1];
 			int y2Data = returnLeftTopRightTop_MiddleArray(coordParentGet)[1];					
-			if(Math.abs((y1Data-y2Data)) < oneLetterSize2+oneLetterSize2*1 )
+			if(Math.abs((y1Data-y2Data)) < oneLetterSize2+oneLetterSize2*0.8 )
 				return true;
 			else				
 				return false;
@@ -207,6 +207,10 @@ public class Calculator {
 				if(checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
 					sentenceNum = sentenceNum + 1;
 					}	
+				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&checkColumn(coordParent.get(i-1), coordParent.get(i))) {
+					sentenceNum = sentenceNum + 1;
+					}	
+				
 			
 			}
 			
@@ -231,21 +235,11 @@ public class Calculator {
 						
 				if(i==2)
 				{
-					sentence.append(des.get(1));											
+					sentence.append(des.get(1));	
+						
 				}
-				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
-					sentenceArray[num] = sentence.toString();
-					insertSentenceLocation();				
-					intsertSentenceIndex(num);
-					setDeaultBooleanSet();
-					num++;
-					sentence.delete(0, sentence.length());
-					sentence.append(des.get(i));
-					index = index + 1;						
-					setDefaultSentenceLocation();					
-					}
 				if(checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {
-										
+					
 					sentenceArray[num] = sentence.toString();
 					insertSentenceLocation();				
 					intsertSentenceIndex(num);
@@ -257,13 +251,40 @@ public class Calculator {
 					setDefaultSentenceLocation();					
 					}			
 				
+				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&!checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
+					sentenceArray[num] = sentence.toString();
+					insertSentenceLocation();				
+					intsertSentenceIndex(num);
+					setDeaultBooleanSet();
+					num++;
+					sentence.delete(0, sentence.length());
+					sentence.append(des.get(i));
+					index = index + 1;						
+					setDefaultSentenceLocation();					
+					}
+				if(!checkRow(coordParent.get(i-1), coordParent.get(i))&&checkColumn(coordParent.get(i-1), coordParent.get(i))) {					
+					
+					sentenceArray[num] = sentence.toString();
+					insertSentenceLocation();				
+					intsertSentenceIndex(num);
+					setDeaultBooleanSet();
+					num++;
+					sentence.delete(0, sentence.length());
+					sentence.append(des.get(i));
+					index = index + 1;						
+					setDefaultSentenceLocation();					
+					}
+				
+				
 				
 				else if(checkRow(coordParent.get(i-1), coordParent.get(i))||checkColumn(coordParent.get(i-1), coordParent.get(i))){
 					sentence.append(des.get(i));
-					checkLeftTop(i, coordParent);
+					
+					checkLeftTop(i-1, coordParent);
+					checkLeftBottom(i-1, coordParent);
 					checkRightTop(i, coordParent);
 					checkRightBottom(i, coordParent);
-					checkLeftBottom(i, coordParent);							
+												
 					}		
 					
 				if(i==coordParent.size()-1) {
@@ -347,8 +368,10 @@ public class Calculator {
 		
 		
 		public void insertSentenceLocation() {
-			for(int i = 0; i<leftTop.length;i++)
+			for(int i = 0; i<leftTop.length;i++) {
 				sentenceLocation.add(leftTop[i]);
+			System.out.println(leftTop[i]);
+			}
 			
 			for(int i = 0; i<rightTop.length;i++)
 				sentenceLocation.add(rightTop[i]);

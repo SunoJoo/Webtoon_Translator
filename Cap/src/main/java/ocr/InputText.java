@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.imageio.ImageIO;
 
@@ -15,7 +16,32 @@ import javax.imageio.ImageIO;
  */
 
 public class InputText {
-	public static void main(String[] args) {
+	
+	ResultData resultData;
+	String[] st;
+	int[][] arr;
+	
+	public InputText(ResultData rd){
+		this.resultData = rd;
+		convertTextData();
+		convertPositionData();
+	}
+	
+	public void convertTextData() {
+		st = (String[]) resultData.getText().toArray(new String[resultData.getText().size()]);
+		
+	}
+	
+	public void convertPositionData() {
+		arr = new int[resultData.getPosition().size()][resultData.getPosition().get(0).size()];
+		for(int i = 0 ; i<resultData.getPosition().size(); i++) {
+			for(int j = 0; j<resultData.getPosition().get(i).size();j++) {
+				arr[i][j] = resultData.getPosition().get(i).get(j);
+			}
+		}		
+	}
+	
+	public void start() {
 		int firsttextX;
 		int firsttextY;
 		int firstX;
@@ -23,35 +49,37 @@ public class InputText {
 		int width;
 		int height;
 		
+		
+		
 		/*
 		 *ArrayList�� �� �������� �����ϸ� �� 
 		 */
 		
 		//������ ���� ����(ArrayList�̶�� �����ϰ� ����)
-		String[] st = {
-				/*//9
+		/*String[] st = {
+				//9
 				"I do not think so.",
 				"I think I have something on my neck.",
 				"Hook Endoscope ...?",
 				"I can not really do that because I'm not good at it.",
 				"A neck endoscope is a way of seeing a doctor holding a tongue and lighting his throat"
-				*/
+				
 				//3
-				/*"I swallowed it, but it's gone.",
+				"I swallowed it, but it's gone.",
 				"It's a weekend, so I'm planning a hospital.",
 				"I think he's gotten very tight.",
 				"You seem to be crazy too.",
 				"The spiny fairy will solve it while you sleep!"
-				*/
 				
-				/*//8
+				
+				//8
 				"Something is getting bigger and bigger.",
 				"I can not see it. I'll take an x-ray.",
 				"Would you like to change clothes to your patient's clothes?",
 				"I started discussing the x-ray picture within three minutes of my young doctor.",
 				"I think this is poetry.",
 				"Ah, a little ambiguous."
-				*/
+				
 				
 				//13
 				"I got some money, but it's okay! I've confirmed that there is no thorn!",
@@ -60,33 +88,33 @@ public class InputText {
 				"And the next day was as it was.",
 				"Help me."
 				
-		};
+		};*/
 		
 		//��ǥ(��Ȯ���� ���� ��ǥ�� ������ �ʿ��ϴ�)ArrayList��� ������
-		int[][] arr = {
-				/*//9
+		/*int[][] arr = {
+				//9
 				{271, 246, 570, 246, 570, 275, 271, 275},
 				{52, 621, 438, 621, 438, 686, 52, 686},
 				{443, 731, 635, 731, 635, 760, 443, 760},
 				{315, 1181, 636, 1181, 636, 1244, 315, 1244},
 				{72, 1473, 638, 1473, 638, 1542, 72, 1542}
-				*/
+				
 				//3
-				/*{68, 262, 426, 262, 426, 327, 68, 327},
+				{68, 262, 426, 262, 426, 327, 68, 327},
 				{523, 375, 664, 377, 664, 476, 524, 479},
 				{434, 855, 667, 855, 667, 883, 434, 883},
 				{140, 989, 404, 989, 404, 1018, 140, 1018},
 				{292, 1229, 567, 1229, 567, 1294, 292, 1294}
-				*/
 				
-				/*//8
+				
+				//8
 				{213, 107, 553, 107, 553, 135, 213, 135},
 				{29, 193, 326, 193, 326, 258, 29, 258},
 				{88, 625, 499, 625, 499, 780, 91, 785},
 				{53, 1118, 634, 1118, 634, 1181, 53, 1181},
 				{50, 1277, 227, 1276, 227, 1305, 50, 1306},
 				{446, 1444, 634, 1444, 634, 1472, 446, 1472}
-				*/
+				
 				
 				//13
 				{68, 233, 493, 233, 493, 297, 68, 297},
@@ -95,7 +123,7 @@ public class InputText {
 				{136, 1146, 654, 1146, 654, 1175, 136, 1175},
 				{142, 1237, 600, 1237, 600, 1317, 142, 1318}
 				
-		};
+		};*/
 
 		int x1 = 10;
 		/*int x2 = 40;*/
@@ -133,8 +161,8 @@ class hj {
 	public void go(int[][] arr,int firsttextX,int firsttextY,int firstX,int firstY,int width,int height) {
 		
 		Date date = new Date();
-		File loadImage = new File("C:/Users/hojin/Desktop/_13.jpg");
-		File makeImage = new File("C:/Users/hojin/Desktop/_13.jpg");
+		File loadImage = new File("C:/Users/kingt/git/Webtoon_Translator/Cap/src/main/resources/webtoon_img/_13.jpg");
+		File makeImage = new File("C:/Users/kingt/git/Webtoon_Translator/Cap/src/main/resources/webtoon_img/_13.jpg");
 		//���� �����̸��� �޸� �ؼ� ���� �����ϰ� ������ �����ϸ� 
 		//�����̱������ �Ϸ��� ������ �� �ȵǼ� �ϴ� �̸��� ���� �ؼ� �����̴� ������� ����
 		//���� �˸� makeImage�κ��� �����ϱ� �ٶ�

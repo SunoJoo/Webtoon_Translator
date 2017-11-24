@@ -20,13 +20,13 @@ public class Web_Run {
 		
 		//new Crawler(ref);		
 		
-		String imgPath = "/Users/Suno Joo/git/Cap/src/main/resources/webtoon_img";
+		String imgPath = "/Users/kingt/git/Cap/src/main/resources/webtoon_img";
 		/*ImageProcessing ip = new ImageProcessing(imgPath);
 		ip.start();*/
 		Detect detect = new Detect();		
-		String path = imgPath+"/_13.jpg";
+		String path = imgPath+"/_4.jpg";
 		System.out.println(getClass().getResource(""));
-		File f = new File("/Users/Suno Joo/git/Cap/text/lines.txt");
+		File f = new File("/Users/kingt/git/Cap/text/lines.txt");
 		PrintStream p;	
 		Coordinator coordinator;
 		Calculator calculator;		

@@ -17,7 +17,7 @@ import org.jsoup.select.Elements;
 public class Crawler {
 	static int i = 0; //나중에 이미지 파일갯수가 됨 for문을 이용해서 이미지-텍스트OCR(147번 라인)
 	
-	private String saveDir = "/Users/Suno Joo/git/Cap/src/main/resources/webtoon_img"; //저장 디렉터리 경로(동일한 주소로 통일하기 위해서)
+	private String saveDir = "C:/Users/kingt/git/Webtoon_Translator/Cap/src/main/resources/webtoon_img"; //저장 디렉터리 경로(동일한 주소로 통일하기 위해서)
 	
 	//이부분이 필터가 필요////////직접 사이트에서 확인해야되는 불편함///	
 	////////////////////////////////////////////////
@@ -133,7 +133,8 @@ class ImageSaver extends Thread {
         } catch(Exception ex) {
             System.out.println("IMAGENAME : " + status);
             ex.printStackTrace();
-        } finally {        	
+        } finally {      
+        	
         }
     }
 }
