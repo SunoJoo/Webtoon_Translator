@@ -1,17 +1,19 @@
 package ocr;
 
+
 import java.io.File;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Run {
+	
+	
 	/**
 	 * @param args
 	 * Crawler는 스레드가 따로 돌기 때문에 join해줘야함
 	 * 아직 join을 안해줬으므로 Crawler먼저 main에서 실행 후 주석처리하고 Detect부터 실행하면 됨
 	 * 구글 API는 각자 받은 json파일과 본인 계정을 사용하기 바람(제거는 이미 많이씀..)
 	 */
-	
 	public static void main(String[] args) {
 		/**
 		 * @param args
@@ -22,14 +24,19 @@ public class Run {
 			// TODO Auto-generated method stub
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		String path = "./src/main/resources/webtoon_img/_13.jpg";
+=======
+		String path = "./src/main/resources/webtoon_img/_42.jpg";
+>>>>>>> parent of c90041f... 32
 		File f = new File("./text/lines.txt");
 		PrintStream p;	
 		Coordinator coordinator;
 		Calculator calculator;		
 		
-		try {
+		try {		
 			p = new PrintStream(f);
+<<<<<<< HEAD
 			detect.detectText(path, p);
 =======
 			
@@ -56,16 +63,18 @@ public class Run {
 				calculator = new Calculator(coordinator.getDes(),coordinator.getCoordParent());
 				calculator.calResult();		
 >>>>>>> branch 'master' of https://github.com/SunoJoo/Webtoon_Translator.git
+=======
+			detect.detectText(path, p);		
+>>>>>>> parent of c90041f... 32
 				
 <<<<<<< HEAD
 			coordinator = new Coordinator(detect.getDes(),detect.getCoord());
 			coordinator.coordinate();
 			calculator = new Calculator(coordinator.getDes(),coordinator.getCoordParent());
 			calculator.calresult();
-			for(int i = 0; i<calculator.getSentenceArray().length;i++) {
+			for(int i = 0; i<calculator.getSentenceArray().length;i++) {				
 				System.out.println(calculator.getSentenceArray()[i]);
-				
-				System.out.println(calculator.getSentenceIndex().get(i));				
+				System.out.println(calculator.getSentenceIndex().get(i));						
 			}
 =======
 				
@@ -99,6 +108,16 @@ public class Run {
 >>>>>>> branch 'master' of https://github.com/SunoJoo/Webtoon_Translator.git
 			
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+			
+			
+		
+			
+			
+			
+			
+>>>>>>> parent of c90041f... 32
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
