@@ -16,42 +16,42 @@ public class Web_Run {
 	}
 	public ResultData run() {
 		// TODO Auto-generated method stub
-		//String path1 = "./src/main/resources/webtoon_img/";
-		//ImageProcessing ip = new ImageProcessing(path1);
-		//ip.start(path1);
+		
+		
 		new Crawler(ref);		
 		
-		Detect detect = new Detect();
-		
-		String path = "H:/Users/Suno Joo/git/Cap/src/main/resources/webtoon_img/_10.jpg";
-		File f = new File("lines.txt");
-		PrintStream p;	
-		Coordinator coordinator;
-		Calculator calculator;		
+		String imgPath = "/Users/Suno Joo/git/Cap/src/main/resources/webtoon_img";
+		ImageProcessing ip = new ImageProcessing(imgPath);
+		ip.start();
+		//Detect detect = new Detect();		
+		//String path = imgPath+"/_10.jpg";
+	//	System.out.println(getClass().getResource(""));
+		//File f = new File("lines.txt");
+	//	PrintStream p;	
+	//	Coordinator coordinator;
+	//	Calculator calculator;		
 		ResultData result = new ResultData();
 		
-		try {		
-			p = new PrintStream(f);
-			detect.detectText(path, p);		
+	//	try {		
+	//		p = new PrintStream(f);
+	//		detect.detectText(path, p);		
 				
-			coordinator = new Coordinator(detect.getDes(),detect.getCoord());
-			coordinator.coordinate();
-			calculator = new Calculator(coordinator.getDes(),coordinator.getCoordParent());
-			calculator.calresult();			
-			for(int i = 0; i<calculator.getSentenceArray().length;i++) {				
-				Trans translator = new Trans();
-				result.addText(translator.translator(calculator.getSentenceArray()[i]));				
-			}
-			result.setPosition(calculator.getSentenceIndex());						
-				System.out.println(result.getText().get(1));
-				System.out.println(result.getPosition().get(1));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return result;
+	//		coordinator = new Coordinator(detect.getDes(),detect.getCoord());
+	//		coordinator.coordinate();
+	//		calculator = new Calculator(coordinator.getDes(),coordinator.getCoordParent());
+	//		calculator.calresult();			
+	//		for(int i = 0; i<calculator.getSentenceArray().length;i++) {				
+	//			Trans translator = new Trans();
+	//			result.addText(translator.translator(calculator.getSentenceArray()[i]));				
+	//		}
+	//		result.setPosition(calculator.getSentenceIndex());						
+	//			System.out.println(result.getText().get(1));
+	//			System.out.println(result.getPosition().get(1));
+	//	} catch (Exception e) {
+	//		// TODO Auto-generated catch block
+	//		e.printStackTrace();
+	//	}
 		
-
-		
+		return result;	
 	}
 }
